@@ -4,15 +4,14 @@
  * and open the template in the editor.
  */
 
-package OilCol.models;
+package com.example.models;
 
 /**
  *
  * @author Mauricio
  */
-public class Competitor{
-     
-    
+public class CompetitorDTO {
+ 
     private String name;
     
     private String surname;
@@ -29,26 +28,11 @@ public class Competitor{
     
     private String country;
     
-    private boolean winner;
-
     
-    public Competitor(){
+    public CompetitorDTO(){
         
     }
-    
-    public Competitor(String nameN, String surnameN, int ageN,String telephoneN, String cellphoneN, String addressN, String  cityN, String countryN,boolean winnerN){
-        name=nameN;
-        surname=surnameN;
-        age=ageN;
-        telephone=telephoneN;
-        cellphone=cellphoneN;
-        address=addressN;
-        city=cityN;
-        country=countryN;
-        winner=winnerN;
-    }
-    
-   
+
     public String getName() {
         return name;
     }
@@ -111,14 +95,6 @@ public class Competitor{
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public boolean isWinner() {
-        return winner;
-    }
-
-    public void setWinner(boolean winner) {
-        this.winner = winner;
     }
     
 }

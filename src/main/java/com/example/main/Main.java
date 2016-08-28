@@ -1,6 +1,6 @@
-package OilCol.Main;
+package com.example.main;
 
-import com.example.PersistenceManager;
+import com.example.main.PersistenceManager;
 import javax.persistence.EntityManager;
 
 import org.eclipse.jetty.server.Server;

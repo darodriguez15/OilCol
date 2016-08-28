@@ -1,18 +1,16 @@
-/*
+ /*
+ * Tomado de: http://javanotepad.blogspot.com/2007/05/jpa-entitymanagerfactory-in-web.html
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package OilCol.Main;
-
+package com.example.main;
+ 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-/**
- *
- * @author da.rodriguez15
- */
-public class PersistenceManager 
-{
+ 
+public class PersistenceManager {
+ 
     public static final boolean DEBUG = true;
     private static final PersistenceManager singleton = new PersistenceManager();
     protected EntityManagerFactory emf;
@@ -46,11 +44,9 @@ public class PersistenceManager
     }
  
     protected void createEntityManagerFactory() {
-        this.emf = Persistence.createEntityManagerFactory("CompetitorsPU", System.getProperties());
+        this.emf = Persistence.createEntityManagerFactory("OilPU", System.getProperties());
         if (DEBUG) {
             System.out.println("Persistence started at " + new java.util.Date());
         }
     }
 } 
-    
-
