@@ -17,7 +17,7 @@ import javax.persistence.Id;
  * @author jc.gomez18
  */
 @Entity
-public class Reporte 
+public class SensorTemperatura 
 {
  private static final long serialVersionUID = 1L;
  
@@ -26,17 +26,17 @@ public class Reporte
     private Long id;   
     
     @NotNull
-    @Column(name = "descripcion")
-    private String descripcion;
+    @Column(name = "temperatura")
+    private double temp;
     
     
     
-    public Reporte (){}
+    public SensorTemperatura (){}
     
-    public Reporte ( String esta)
+    public SensorTemperatura (double esta)
     {
      
-        descripcion = esta; 
+        temp = esta; 
     }
 
     /**
@@ -54,17 +54,17 @@ public class Reporte
     }
 
       /**
-     * @return the descripcion
+     * @return the temp
      */
-    public String getDescripcion() {
-        return descripcion;
+    public double getTemperatura() {
+        return temp;
     }
 
     /**
-     * @param des the descripcion to set
+     * @param des the temp to set
      */
-    public void setDescripcion (String des) {
-        this.descripcion = des;
+    public void setTemperatura (double des) {
+        this.temp = des;
     }
     
 }

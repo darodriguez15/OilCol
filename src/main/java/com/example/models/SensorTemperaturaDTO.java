@@ -9,28 +9,28 @@ package com.example.models;
  *
  * @author jc.gomez18
  */
-public class ReporteDTO 
+public class SensorTemperaturaDTO 
 {
    
-    private String descripcion;
+    private double temp;
     
     
-    public ReporteDTO(){
+    public SensorTemperaturaDTO(){
         
     }
 
     /**
-     * @return the descripcion
+     * @return the temp
      */
-    public String getDescripcion() {
-        return descripcion;
+    public double getTemperatura() {
+        return temp;
     }
 
     /**
-     * @param des the descripcion to set
+     * @param des the temp to set
      */
-    public void setDescripcion(String des) {
-        this.descripcion = des;
+    public void setTemperatura(double des) {
+        this.temp = des;
     }
 
    
