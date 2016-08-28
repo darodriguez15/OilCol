@@ -6,6 +6,7 @@
     <class>com.example.models.Campo</class>
     <class>com.example.models.JefeAsignado</class>
     <class>com.example.models.Pozo</class>
+    <class>com.example.models.Reporte</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
       <property name="javax.persistence.jdbc.user" value="app"/>
