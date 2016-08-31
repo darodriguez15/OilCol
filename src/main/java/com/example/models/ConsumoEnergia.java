@@ -34,10 +34,10 @@ public class ConsumoEnergia implements Serializable
     
     public ConsumoEnergia (){}
     
-    public ConsumoEnergia (double con)
+    public ConsumoEnergia (double consumo)
     {
      
-        consumo = con; 
+        consumo = consumo; 
     }
 
     /**
@@ -62,10 +62,10 @@ public class ConsumoEnergia implements Serializable
     }
 
     /**
-     * @param nue the consumo to set
+     * @param consumo the consumo to set
      */
-    public void setConsumoEnergia (double nue) {
-        this.consumo = nue;
+    public void setConsumoEnergia (double consumo) {
+        this.consumo = consumo;
     }
     
 }

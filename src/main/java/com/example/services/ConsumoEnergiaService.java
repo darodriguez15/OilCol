@@ -28,7 +28,7 @@ import org.codehaus.jettison.json.JSONObject;
  *
  * @author fa.vera10
  */
-@Path("/consumo")
+@Path("/consumoEnergia")
 @Produces(MediaType.APPLICATION_JSON)
 public class ConsumoEnergiaService 
 {
@@ -56,7 +56,7 @@ public class ConsumoEnergiaService
     @POST
     @Path("/add")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response createCaudal(ConsumoEnergiaDTO consumo) {
+    public Response createConsumoEnergia(ConsumoEnergiaDTO consumo) {
         JSONObject rta = new JSONObject();
         ConsumoEnergia rep = new ConsumoEnergia();
         rep.setConsumoEnergia(consumo.getConsumoEnergia()
