@@ -57,14 +57,14 @@ public class PozoService {
         return Response.status(200).header("Access-Control-Allow-Origin", "*").entity(pozos).build();
     } 
     
-     //@GET
-    //@Path("/latlon")
-    //@Produces(MediaType.APPLICATION_JSON)
-    //public Response getByLatyLon(@QueryParam("latiM") double latiInf, @QueryParam("latiX") double LatiSup,@QueryParam("longiM") double longim, @QueryParam("longiX") double longimax) {
-        //Query q = entityManager.createQuery("select u from Pozo u where u.longitud between "+longim+" AND "+longimax+ " and u.latitud between "+latiInf+" and "+LatiSup );
-       // List<Pozo> pozos = q.getResultList();
-     //   return Response.status(200).header("Access-Control-Allow-Origin", "*").entity(pozos).build();
-   // } 
+     @GET
+    @Path("/latlon")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getByLatyLon(@QueryParam("latiM") double latiInf, @QueryParam("latiX") double LatiSup,@QueryParam("longiM") double longim, @QueryParam("longiX") double longimax) {
+        Query q = entityManager.createQuery("select u from Pozo u where u.longitud between "+longim+" AND "+longimax+ " and u.latitud between "+latiInf+" and "+LatiSup );
+       List<Pozo> pozos = q.getResultList();
+       return Response.status(200).header("Access-Control-Allow-Origin", "*").entity(pozos).build();
+    } 
     
     @POST
     @Path("/add")
