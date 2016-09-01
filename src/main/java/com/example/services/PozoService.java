@@ -21,8 +21,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.codehaus.jettison.json.JSONObject;
@@ -55,6 +57,15 @@ public class PozoService {
         return Response.status(200).header("Access-Control-Allow-Origin", "*").entity(pozos).build();
     } 
     
+     //@GET
+    //@Path("/latlon")
+    //@Produces(MediaType.APPLICATION_JSON)
+    //public Response getByLatyLon(@QueryParam("latiM") double latiInf, @QueryParam("latiX") double LatiSup,@QueryParam("longiM") double longim, @QueryParam("longiX") double longimax) {
+        //Query q = entityManager.createQuery("select u from Pozo u where u.longitud between "+longim+" AND "+longimax+ " and u.latitud between "+latiInf+" and "+LatiSup );
+       // List<Pozo> pozos = q.getResultList();
+     //   return Response.status(200).header("Access-Control-Allow-Origin", "*").entity(pozos).build();
+   // } 
+    
     @POST
     @Path("/add")
     @Produces(MediaType.APPLICATION_JSON)
@@ -83,6 +94,44 @@ public class PozoService {
         }
         return Response.status(200).header("Access-Control-Allow-Origin", "*").entity(rta).build();
     } 
+    
+    
+     @GET
+    @Path("/cambiarEstado")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response CambiarEstado(@QueryParam("estado") String estado, @QueryParam("id") String id) 
+    {
+       
+        Query cu = entityManager.createQuery("select u from Pozo u where u.id ="+id);
+        List<Pozo> pozos = cu.getResultList();
+        
+        Pozo c = pozos.get(0);
+        c.setEstado(estado);
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.persist(c);
+            entityManager.getTransaction().commit();
+            entityManager.refresh(c);
+            
+        } catch (Throwable t) {
+            t.printStackTrace();
+            if (entityManager.getTransaction().isActive()) {
+                entityManager.getTransaction().rollback();
+            }
+           
+        } 
+        
+        Query q = entityManager.createQuery("select u from Pozo u where u.id ="+id);
+        List<Pozo> capos = cu.getResultList();
+        
+
+        return Response.status(200).header("Access-Control-Allow-Origin", "*").entity(capos).build();
+        
+       
+    } 
+    
+    
+    
     
     
 }

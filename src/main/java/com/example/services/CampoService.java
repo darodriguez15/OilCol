@@ -10,6 +10,7 @@ import com.example.models.Campo;
 import com.example.models.CampoDTO;
 import com.example.models.Competitor;
 import com.example.models.CompetitorDTO;
+
         
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.codehaus.jettison.json.JSONObject;
@@ -80,6 +82,14 @@ public class CampoService
             entityManager.close();
         }
         return Response.status(200).header("Access-Control-Allow-Origin", "*").entity(rta).build();
+    } 
+     @GET
+    @Path("/latlon")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getByLatyLon(@QueryParam("latiM") double latiInf, @QueryParam("latiX") double LatiSup,@QueryParam("longiM") double longim, @QueryParam("longiX") double longimax) {
+        Query q = entityManager.createQuery("select u from CAMPO u where u.longitud between "+longim+" AND "+longimax+ " and u.latitud between "+latiInf+" and "+LatiSup );
+        List<Campo> pozos = q.getResultList();
+        return Response.status(200).header("Access-Control-Allow-Origin", "*").entity(pozos).build();
     } 
     
     

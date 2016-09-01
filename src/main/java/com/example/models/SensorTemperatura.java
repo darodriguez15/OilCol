@@ -5,6 +5,8 @@
  */
 package com.example.models;
 
+
+import com.example.services.ReporteService;
 import com.sun.istack.NotNull;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,6 +22,8 @@ import javax.persistence.Id;
 public class SensorTemperatura 
 {
  private static final long serialVersionUID = 1L;
+ 
+ public final static String tipo = "SENSOR_TEMPERATURA"; 
  
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -66,5 +70,14 @@ public class SensorTemperatura
     public void setTemperatura (double des) {
         this.temp = des;
     }
-    
+    public void crearReporte(Long idSensor, Long idPozo, String Descripcion)
+    {
+        ReporteDTO x = new ReporteDTO();
+        x.setIdSensor(this.getId());
+        x.setIdPozo(idPozo);
+        x.setDescripcion(Descripcion);
+        x.setTipoSensor(tipo);
+        ReporteService rs = new ReporteService();
+        rs.createReporte(x); 
+    }
 }

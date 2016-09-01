@@ -5,6 +5,8 @@
  */
 package com.example.models;
 
+
+import com.example.services.ReporteService;
 import com.sun.istack.NotNull;
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -22,6 +24,8 @@ public class ConsumoEnergia implements Serializable
 {
  private static final long serialVersionUID = 1L;
  
+ private final static String tipo = "SENSOR_COSNUMO_ENERGIA"; 
+ 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;   
@@ -29,6 +33,8 @@ public class ConsumoEnergia implements Serializable
     @NotNull
     @Column(name = "consumo")
     private double consumo;
+    
+    
     
     
     
@@ -67,5 +73,14 @@ public class ConsumoEnergia implements Serializable
     public void setConsumoEnergia (double consumo) {
         this.consumo = consumo;
     }
-    
+    public void crearReporte(Long idSensor, Long idPozo, String Descripcion)
+    {
+        ReporteDTO x = new ReporteDTO();
+        x.setIdSensor(this.getId());
+        x.setIdPozo(idPozo);
+        x.setDescripcion(Descripcion);
+        x.setTipoSensor(tipo);
+        ReporteService rs = new ReporteService();
+        rs.createReporte(x); 
+    }
 }

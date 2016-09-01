@@ -5,6 +5,8 @@
  */
 package com.example.models;
 
+
+import com.example.services.ReporteService;
 import com.sun.istack.NotNull;
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -21,6 +23,8 @@ import javax.persistence.Id;
 public class Caudal implements Serializable
 {
  private static final long serialVersionUID = 1L;
+ 
+ public final static String tipo = "SENSOR_CAUDAL"; 
  
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -66,6 +70,17 @@ public class Caudal implements Serializable
      */
     public void setCaudal (double nue) {
         this.caudal = nue;
+    }
+    
+    public void crearReporte(Long idSensor, Long idPozo, String Descripcion)
+    {
+        ReporteDTO x = new ReporteDTO();
+        x.setIdSensor(this.getId());
+        x.setIdPozo(idPozo);
+        x.setDescripcion(Descripcion);
+        x.setTipoSensor(tipo);
+        ReporteService rs = new ReporteService();
+        rs.createReporte(x); 
     }
     
 }

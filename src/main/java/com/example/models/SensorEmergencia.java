@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.example.models;
+import com.example.services.ReporteService;
 import com.sun.istack.NotNull;
 import java.io.Serializable;
 import java.util.Calendar;
@@ -30,6 +31,8 @@ import javax.persistence.TemporalType;
 public class SensorEmergencia implements Serializable
 {
     private static final long serialVersionUID = 1L;
+    
+    public final static String tipo = "SENSOR_EMERGENCIA"; 
  
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -71,5 +74,15 @@ public class SensorEmergencia implements Serializable
     public void setEmergencia(String emergencia) {
         this.emergencia = emergencia;
     }
-
+    
+    public void crearReporte(Long idSensor, Long idPozo, String Descripcion)
+    {
+        ReporteDTO x = new ReporteDTO();
+        x.setIdSensor(this.getId());
+        x.setIdPozo(idPozo);
+        x.setDescripcion(Descripcion);
+        x.setTipoSensor(tipo);
+        ReporteService rs = new ReporteService();
+        rs.createReporte(x); 
+    }
 }
