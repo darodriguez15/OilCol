@@ -1,0 +1,4 @@
+*.log
+OilCol-master/.sbtserver/connections/master.log
+*.log
+OilCol-master/.sbtserver/previous.log

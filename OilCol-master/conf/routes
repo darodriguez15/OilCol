@@ -9,11 +9,25 @@ GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
 GET     /message                    controllers.AsyncController.message
 
+#CampoController
+
+GET /campos               controllers.CampoController.getCampos
+POST /campos				controllers.CampoController.createCampo
+GET   /campo/:id         controllers.CampoController.getCampo(id: Long)
+
+#CaudalController
+
+GET /caudales               controllers.CaudalController.getCaudales
+POST /caudales				controllers.CaudalController.createCaudal
+GET   /caudal/:id         controllers.CaudalController.getCaudal(id: Long)
+
 #ProductController
 
 GET /products               controllers.ProductController.getProducts
 POST /products				controllers.ProductController.createProduct
 GET   /product/:id         controllers.ProductController.getProduct(id: Long)
+
+
 
 
 # Map static resources from the /public folder to the /assets URL path

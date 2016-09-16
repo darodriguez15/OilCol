@@ -1,51 +1,51 @@
 package models;
- 
+
 import javax.persistence.*;
 import com.avaje.ebean.Model;
- 
+
 @Entity
 @Table(name = "campoEntity")
-public class CampoEntity extends Model{
- 
-    public static Finder<Long,ProductEntity> FINDER = new Finder<>(ProductEntity.class);
- 
+public class CampoEntity extends Model {
+
+    public static Finder<Long,CampoEntity> FINDER = new Finder<>(CampoEntity.class);
+
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE,generator = "Campo")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Campo")
     private Long id;
     private String departamento;
     private double latitud;
     private double longitud;
-    
-    
-    public ProductEntity() {
-        this.id=null;
-        this.departamento ="NO NAME";
+
+
+    public CampoEntity() {
+        this.id = null;
+        this.departamento = "NO NAME";
         this.latitud = -1;
         this.longitud = -1;
-       
+
     }
- 
-    public ProductEntity(Long id) {
+
+    public CampoEntity(Long id) {
         this();
         this.id = id;
     }
- 
-    public ProductEntity(Long id, String departamento, Double lat, Double longi) {
+
+    public CampoEntity(Long id, String departamento, Double lat, Double longi) {
         this.id = id;
         this.departamento = departamento;
         this.latitud = lat;
         this.longitud = longi;
-        this.available = available;
+
     }
-    
+
     public Long getId() {
         return id;
     }
-    
+
     public void setId(Long id) {
         this.id = id;
     }
-    
+
     public double getLongitud() {
         return longitud;
     }
@@ -75,26 +75,16 @@ public class CampoEntity extends Model{
      * @return the Departamento
      */
     public String getDepartamento() {
-        return Departamento;
+        return departamento;
     }
 
     /**
      * @param Departamento the Departamento to set
      */
     public void setDepartamento(String Departamento) {
-        this.Departamento = Departamento;
+        this.departamento = Departamento;
     }
 
-    
-    
-    
-    @Override
-    public String toString() {
-        return "ProductEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", stock=" + stock +
-                ", price=" + price +
-                ", available=" + available +
-                '}';
-    }
+
+
+}
