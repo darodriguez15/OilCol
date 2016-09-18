@@ -15,11 +15,53 @@ GET /campos               controllers.CampoController.getCampos
 POST /campos				controllers.CampoController.createCampo
 GET   /campo/:id         controllers.CampoController.getCampo(id: Long)
 
+#ConsumoEnergiaController
+
+GET /consumoEnergia               controllers.ConsumoEnergiaController.getConsumosEnergia
+POST /consumoEnergia				controllers.ConsumoEnergiaController.createConsumoEnergia
+GET   /consumoEnergia/:id         controllers.ConsumoEnergiaController.getConsumoEnergia(id: Long)
+
+#JefeAsignadoController
+
+GET /jefesAsignado               controllers.JefeAsignadoController.getJefesAsignado
+POST /jefesAsignado				controllers.JefeAsignadoController.createJefeAsignado
+GET   /jefeAsignado/:id         controllers.JefeAsignadoController.getJefeAsignado(id: Long)
+
+#JefeDeCampoController
+
+GET /jefesDeCampo               controllers.JefeDeCampoController.getJefesDeCampo
+POST /jefesDeCampo				controllers.JefeDeCampoController.createJefeDeCampo
+GET   /jefeDeCampo/:id         controllers.JefeDeCampoController.getJefeDeCampo(id: Long)
+
 #CaudalController
 
 GET /caudales               controllers.CaudalController.getCaudales
 POST /caudales				controllers.CaudalController.createCaudal
 GET   /caudal/:id         controllers.CaudalController.getCaudal(id: Long)
+
+#PozoController
+
+GET /pozos               controllers.PozoController.getPozos
+POST /pozos				controllers.PozoController.createPozo
+GET   /pozo/:id         controllers.PozoController.getPozo(id: Long)
+
+#ReporteController
+
+GET /reportes               controllers.ReporteController.getReportes
+POST /reportes			controllers.ReporteController.createReporte
+GET   /reporte/:id         controllers.ReporteController.getReporte(id: Long)
+
+#SensorEmergenciaController
+
+GET /sensoresEmergencia             controllers.SensorEmergenciaController.getSensoresEmergencia
+POST /sensoresEmergencia			controllers.SensorEmergenciaController.createSensorEmergencia
+GET   /sensorEmergencia/:id         controllers.SensorEmergenciaController.getSensorEmergencia(id: Long)
+
+#SensorTemperaturaController
+
+GET /sensoresTemperatura            controllers.SensorTemperaturaController.getSensoresTemperatura
+POST /sensoresTemperatura			controllers.SensorTemperaturaController.createSensorTemperatura
+GET   /sensorTemperatura/:id         controllers.SensorTemperaturaController.getSensorTemperatura(id: Long)
 
 #ProductController
 
