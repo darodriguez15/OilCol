@@ -32,6 +32,8 @@ public class PozoController  extends Controller
 
 
 
+
+
     public CompletionStage<Result> getPozo(Long id) {
         MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
 
@@ -49,6 +51,31 @@ public class PozoController  extends Controller
                 );
     }
 
+
+
+
+
+
+
+
+        public CompletionStage<Result> cambiarPozo(Long id, String estado ) {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+        PozoEntity con = PozoEntity.FINDER.byId(id);        con.setEstado(estado);
+        return CompletableFuture.supplyAsync(
+                        () -> {
+
+
+                            con.save();
+                            return con;
+
+                        }
+                        ,jdbcDispatcher)
+                .thenApply(
+                        pozoEntity -> {
+                            return ok(toJson(pozoEntity));
+                        }
+                );
+    }
 
 
     public CompletionStage<Result> createPozo(){

@@ -44,6 +44,7 @@ GET   /caudal/:id         controllers.CaudalController.getCaudal(id: Long)
 GET /pozos               controllers.PozoController.getPozos
 POST /pozos				controllers.PozoController.createPozo
 GET   /pozo/:id         controllers.PozoController.getPozo(id: Long)
+GET /cpozos/:id/:estado            controllers.PozoController.cambiarPozo(id: Long, estado: String)
 
 #ReporteController
 
