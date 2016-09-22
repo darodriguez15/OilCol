@@ -22,6 +22,11 @@ public class PozoEntity extends Model {
 
     private String Estado;
 
+    @ManyToOne(cascade=CascadeType.ALL)
+    private CampoEntity campos;
+
+
+
     public PozoEntity (){}
 
     public PozoEntity (double lat, double lon, String esta)

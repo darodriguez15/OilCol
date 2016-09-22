@@ -50,6 +50,7 @@ create table pozoEntity (
   Longitud                  float,
   Latitud                   float,
   estado                    varchar(255),
+  campos_id                 bigint,
   constraint pk_pozoEntity primary key (id))
 ;
 
@@ -103,6 +104,8 @@ create sequence SensorEmergencia;
 
 create sequence SensorTemperatura;
 
+alter table pozoEntity add constraint fk_pozoEntity_campos_1 foreign key (campos_id) references campoEntity (id);
+create index ix_pozoEntity_campos_1 on pozoEntity (campos_id);
 
 
 

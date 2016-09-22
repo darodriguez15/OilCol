@@ -2,6 +2,7 @@ package models;
 
 import javax.persistence.*;
 import com.avaje.ebean.Model;
+import java.util.*;
 
 @Entity
 @Table(name = "campoEntity")
@@ -15,6 +16,8 @@ public class CampoEntity extends Model {
     private String departamento;
     private double latitud;
     private double longitud;
+
+
 
 
     public CampoEntity() {

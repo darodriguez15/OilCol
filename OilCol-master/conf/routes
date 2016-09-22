@@ -13,7 +13,9 @@ GET     /message                    controllers.AsyncController.message
 
 GET /campos               controllers.CampoController.getCampos
 POST /campos				controllers.CampoController.createCampo
+
 GET   /campo/:id         controllers.CampoController.getCampo(id: Long)
+GET   /campodpto/:dpto        controllers.CampoController.getDPTO(dpto: String)
 
 #ConsumoEnergiaController
 
@@ -45,7 +47,8 @@ GET /pozos               controllers.PozoController.getPozos
 POST /pozos				controllers.PozoController.createPozo
 GET   /pozo/:id         controllers.PozoController.getPozo(id: Long)
 GET /cpozos/:id/:estado            controllers.PozoController.cambiarPozo(id: Long, estado: String)
-
+GET /latitud/:linf/:lsup                     controllers.PozoController.getPozoLatitud(linf: Double, lsup: Double)
+GET /longitud/:linf/:lsup                     controllers.PozoController.getPozoLongitud(linf: Double, lsup: Double)
 #ReporteController
 
 GET /reportes               controllers.ReporteController.getReportes

@@ -54,9 +54,38 @@ public class PozoController  extends Controller
 
 
 
+    public CompletionStage<Result> getPozoLatitud(final double linf, final double lsup) {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+
+        return CompletableFuture.
+                supplyAsync(
+                        () -> {
+                            return PozoEntity.FINDER.where().between("latitud",linf,lsup).findList();
+                        }
+                        ,jdbcDispatcher)
+                .thenApply(
+                        pozoEntities -> {
+                            return ok(toJson(pozoEntities));
+                        }
+                );
+        }
 
 
+    public CompletionStage<Result> getPozoLongitud(final double linf, final double lsup) {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
 
+        return CompletableFuture.
+                supplyAsync(
+                        () -> {
+                            return PozoEntity.FINDER.where().between("longitud",linf,lsup).findList();
+                        }
+                        ,jdbcDispatcher)
+                .thenApply(
+                        pozoEntities -> {
+                            return ok(toJson(pozoEntities));
+                        }
+                );
+    }
 
         public CompletionStage<Result> cambiarPozo(Long id, String estado ) {
         MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;

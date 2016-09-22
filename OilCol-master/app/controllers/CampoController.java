@@ -66,4 +66,20 @@ public class CampoController  extends Controller
                 }
         );
     }
+
+    public CompletionStage<Result> getDPTO(final String dept) {
+        MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
+
+        return CompletableFuture.
+                supplyAsync(
+                        () -> {
+                            return CampoEntity.FINDER.where().eq("departamento",dept).findList();
+                        }
+                        ,jdbcDispatcher)
+                .thenApply(
+                        pozoEntities -> {
+                            return ok(toJson(pozoEntities));
+                        }
+                );
+    }
 }
