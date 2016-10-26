@@ -1,89 +1,13 @@
-New log file opened at Wed Oct 26 14:51:12 COT 2016 by 9624@ISIS2503-0069
-Taking next connection to: 60812
-New client attempting to connect on port: 60813-60812
-  Address = /172.24.42.64:60812
-Handshake exception on socket: 60813
-sbt.impl.ipc.HandshakeException: Unable to perform handshake
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
-	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
-	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
-Caused by: java.net.SocketException: Software caused connection abort: recv failed
-	at java.net.SocketInputStream.socketRead0(Native Method)
-	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
-	at java.net.SocketInputStream.read(SocketInputStream.java:170)
-	at java.net.SocketInputStream.read(SocketInputStream.java:141)
-	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
-	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
-	at java.io.DataInputStream.readInt(DataInputStream.java:387)
-	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
-	... 2 more
-Taking next connection to: 60812
-New client attempting to connect on port: 60814-60812
-  Address = /172.24.42.64:60812
-This client on port 60814 has uuid 51253e22-0a55-4eaa-a2d5-a3b5e9e31a31 configName activator humanReadableName Activator protocolVersion unknown featureTags Vector()
-Connected Clients: activator-51253e22-0a55-4eaa-a2d5-a3b5e9e31a31
-Taking next connection to: 60812
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 60812
-New client attempting to connect on port: 60823-60812
-  Address = /172.24.42.64:60812
-Handshake exception on socket: 60823
-sbt.impl.ipc.HandshakeException: Unable to perform handshake
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
-	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
-	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
-Caused by: java.net.SocketException: Software caused connection abort: recv failed
-	at java.net.SocketInputStream.socketRead0(Native Method)
-	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
-	at java.net.SocketInputStream.read(SocketInputStream.java:170)
-	at java.net.SocketInputStream.read(SocketInputStream.java:141)
-	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
-	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
-	at java.io.DataInputStream.readInt(DataInputStream.java:387)
-	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
-	... 2 more
-Taking next connection to: 60812
-New client attempting to connect on port: 60824-60812
-  Address = /172.24.42.64:60812
-This client on port 60824 has uuid 2b559eaa-6b82-44f5-82d7-dabfbb1a326c configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: activator-51253e22-0a55-4eaa-a2d5-a3b5e9e31a31, play-fork-run-2b559eaa-6b82-44f5-82d7-dabfbb1a326c
-Taking next connection to: 60812
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 60812
-New client attempting to connect on port: 60871-60812
-  Address = /172.24.42.64:60812
-Handshake exception on socket: 60871
-sbt.impl.ipc.HandshakeException: Unable to perform handshake
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
-	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
-	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
-Caused by: java.net.SocketException: Software caused connection abort: recv failed
-	at java.net.SocketInputStream.socketRead0(Native Method)
-	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
-	at java.net.SocketInputStream.read(SocketInputStream.java:170)
-	at java.net.SocketInputStream.read(SocketInputStream.java:141)
-	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
-	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
-	at java.io.DataInputStream.readInt(DataInputStream.java:387)
-	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
-	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
-	... 2 more
-Taking next connection to: 60812
-New client attempting to connect on port: 60872-60812
-  Address = /172.24.42.64:60812
-This client on port 60872 has uuid f313e429-1424-419b-be1a-d8379256444f configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: activator-51253e22-0a55-4eaa-a2d5-a3b5e9e31a31, play-fork-run-f313e429-1424-419b-be1a-d8379256444f
-Taking next connection to: 60812
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 60812
-New client attempting to connect on port: 60918-60812
-  Address = /172.24.42.64:60812
-Handshake exception on socket: 60918
+New log file opened at Wed Oct 26 17:00:08 COT 2016 by 7492@ISIS2503-0069
+Taking next connection to: 58594
+New client attempting to connect on port: 58595-58594
+  Address = /172.24.42.64:58594
+This client on port 58595 has uuid c5542a61-a1b1-4615-9196-acea7063b864 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-c5542a61-a1b1-4615-9196-acea7063b864
+Taking next connection to: 58594
+New client attempting to connect on port: 58596-58594
+  Address = /172.24.42.64:58594
+Handshake exception on socket: 58596
 sbt.impl.ipc.HandshakeException: Unable to perform handshake
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
 	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
@@ -93,24 +17,15 @@ Caused by: java.io.EOFException
 	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
 	... 2 more
-Taking next connection to: 60812
-New client attempting to connect on port: 60919-60812
-  Address = /172.24.42.64:60812
-This client on port 60919 has uuid 82a6212a-3064-42d0-bd3d-9ced2d399c2a configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: activator-51253e22-0a55-4eaa-a2d5-a3b5e9e31a31, play-fork-run-82a6212a-3064-42d0-bd3d-9ced2d399c2a
-Taking next connection to: 60812
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 60812
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 60812
-Checking to see if clients are empty...
-We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 60812
-New client attempting to connect on port: 61117-60812
-  Address = /172.24.42.64:60812
-Handshake exception on socket: 61117
+Taking next connection to: 58594
+New client attempting to connect on port: 58597-58594
+  Address = /172.24.42.64:58594
+This client on port 58597 has uuid 62fd4c81-6f84-44f7-b761-c7a15d707eae configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-c5542a61-a1b1-4615-9196-acea7063b864, activator-62fd4c81-6f84-44f7-b761-c7a15d707eae
+Taking next connection to: 58594
+New client attempting to connect on port: 58608-58594
+  Address = /172.24.42.64:58594
+Handshake exception on socket: 58608
 sbt.impl.ipc.HandshakeException: Unable to perform handshake
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
 	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
@@ -120,12 +35,36 @@ Caused by: java.io.EOFException
 	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
 	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
 	... 2 more
-Taking next connection to: 60812
-New client attempting to connect on port: 61118-60812
-  Address = /172.24.42.64:60812
-This client on port 61118 has uuid 2a965950-4562-4641-8527-dc1783046787 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: activator-51253e22-0a55-4eaa-a2d5-a3b5e9e31a31, play-fork-run-2a965950-4562-4641-8527-dc1783046787
-Taking next connection to: 60812
+Taking next connection to: 58594
+New client attempting to connect on port: 58609-58594
+  Address = /172.24.42.64:58594
+This client on port 58609 has uuid 784c80ae-8cd2-40cf-98b8-8f72da183526 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: activator-c5542a61-a1b1-4615-9196-acea7063b864, play-fork-run-784c80ae-8cd2-40cf-98b8-8f72da183526
+Taking next connection to: 58594
+New client attempting to connect on port: 58647-58594
+  Address = /172.24.42.64:58594
+Handshake exception on socket: 58647
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.net.SocketException: Software caused connection abort: recv failed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:170)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at java.io.DataInputStream.readInt(DataInputStream.java:387)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 58594
+New client attempting to connect on port: 58648-58594
+  Address = /172.24.42.64:58594
+This client on port 58648 has uuid 6aeda88d-0561-477d-88b7-0c61a9d417c8 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: activator-c5542a61-a1b1-4615-9196-acea7063b864, play-fork-run-6aeda88d-0561-477d-88b7-0c61a9d417c8
+Taking next connection to: 58594
 Checking to see if clients are empty...
 We have 1 non-daemon clients, continuing serving connections.
-Taking next connection to: 60812
+Taking next connection to: 58594
