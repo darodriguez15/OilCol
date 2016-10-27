@@ -9,6 +9,9 @@ import play.mvc.*;
 import java.util.concurrent.CompletionStage;
 import play.libs.Json;
 import com.fasterxml.jackson.databind.JsonNode;
+import models.*;
+import views.html.*;
+import play.data.Form;
 
 public class ReporteController  extends Controller
 {
@@ -54,7 +57,7 @@ public class ReporteController  extends Controller
     public CompletionStage<Result> createReporte(){
         MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
         JsonNode nReporte = request().body().asJson();
-      ReporteEntity con = Json.fromJson( nReporte , ReporteEntity.class ) ;
+      ReporteEntity con = Form.form(ReporteEntity.class).bindFromRequest().get();
         return CompletableFuture.supplyAsync(
                 ()->{
                     con.save();

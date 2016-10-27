@@ -8,6 +8,9 @@ import play.mvc.*;
 import java.util.concurrent.CompletionStage;
 import play.libs.Json;
 import com.fasterxml.jackson.databind.JsonNode;
+import models.*;
+import views.html.*;
+import play.data.Form;
 
 import models.ConsumoEnergiaEntity;
 
@@ -55,7 +58,7 @@ public class ConsumoEnergiaController  extends Controller
     public CompletionStage<Result> createConsumoEnergia(){
         MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
         JsonNode nConsumoEnergia = request().body().asJson();
-        ConsumoEnergiaEntity con = Json.fromJson( nConsumoEnergia , ConsumoEnergiaEntity.class ) ;
+        ConsumoEnergiaEntity con =Form.form(ConsumoEnergiaEntity.class).bindFromRequest().get();
         return CompletableFuture.supplyAsync(
                 ()->{
                     con.save();

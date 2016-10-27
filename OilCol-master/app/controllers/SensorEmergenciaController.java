@@ -9,6 +9,9 @@ import play.mvc.*;
 import java.util.concurrent.CompletionStage;
 import play.libs.Json;
 import com.fasterxml.jackson.databind.JsonNode;
+import models.*;
+import views.html.*;
+import play.data.Form;
 
 public class SensorEmergenciaController  extends Controller
 {
@@ -54,7 +57,7 @@ public class SensorEmergenciaController  extends Controller
     public CompletionStage<Result> createSensorEmergencia(){
         MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
         JsonNode nSensorEmergencia = request().body().asJson();
-      SensorEmergenciaEntity con = Json.fromJson( nSensorEmergencia , SensorEmergenciaEntity.class ) ;
+      SensorEmergenciaEntity con = Form.form(SensorEmergenciaEntity.class).bindFromRequest().get();
         return CompletableFuture.supplyAsync(
                 ()->{
                     con.save();

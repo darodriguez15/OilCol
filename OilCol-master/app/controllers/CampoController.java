@@ -9,6 +9,9 @@ import play.mvc.*;
 import java.util.concurrent.CompletionStage;
 import play.libs.Json;
 import com.fasterxml.jackson.databind.JsonNode;
+import models.*;
+import views.html.*;
+import play.data.Form;
 
 public class CampoController  extends Controller
 {
@@ -54,7 +57,7 @@ public class CampoController  extends Controller
     public CompletionStage<Result> createCampo(){
         MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
         JsonNode nCampo = request().body().asJson();
-        CampoEntity campo = Json.fromJson( nCampo , CampoEntity.class ) ;
+        CampoEntity campo = Form.form(CampoEntity.class).bindFromRequest().get();
         return CompletableFuture.supplyAsync(
                 ()->{
                     campo.save();

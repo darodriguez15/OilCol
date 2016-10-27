@@ -9,6 +9,9 @@ import play.mvc.*;
 import java.util.concurrent.CompletionStage;
 import play.libs.Json;
 import com.fasterxml.jackson.databind.JsonNode;
+import models.*;
+import views.html.*;
+import play.data.Form;
 
 public class PozoController  extends Controller
 {
@@ -110,7 +113,7 @@ public class PozoController  extends Controller
     public CompletionStage<Result> createPozo(){
         MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
         JsonNode nPozo = request().body().asJson();
-        PozoEntity con = Json.fromJson( nPozo , PozoEntity.class ) ;
+        PozoEntity con = Form.form(PozoEntity.class).bindFromRequest().get();
         return CompletableFuture.supplyAsync(
                 ()->{
                     con.save();

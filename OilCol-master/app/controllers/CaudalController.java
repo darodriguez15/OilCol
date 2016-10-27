@@ -9,10 +9,17 @@ import play.mvc.*;
 import java.util.concurrent.CompletionStage;
 import play.libs.Json;
 import com.fasterxml.jackson.databind.JsonNode;
+import models.*;
+import views.html.*;
+import play.data.Form;
 
 public class CaudalController  extends Controller
 {
 
+    public static Result index()
+    {
+        return ok(index.render("Hello World"));
+    }
 
     public CompletionStage<Result> getCaudales() {
         MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
@@ -50,11 +57,10 @@ public class CaudalController  extends Controller
     }
 
 
-
     public CompletionStage<Result> createCaudal(){
         MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
         JsonNode nCaudal = request().body().asJson();
-        CaudalEntity cau = Json.fromJson( nCaudal , CaudalEntity.class ) ;
+        CaudalEntity cau = Form.form(CaudalEntity.class).bindFromRequest().get();
         return CompletableFuture.supplyAsync(
                 ()->{
                     cau.save();
@@ -66,4 +72,5 @@ public class CaudalController  extends Controller
                 }
         );
     }
+
 }

@@ -1,20 +1,100 @@
-@*
- * This template takes a single argument, a String containing a
- * message to display.
- *@
-@(message: String)
+@(message:String)
 
-@*
- * Call the `main` template with two arguments. The first
- * argument is a `String` with the title of the page, the second
- * argument is an `Html` object containing the body of the page.
- *@
 @main("Welcome to Play") {
 
-    @*
-     * Get an `Html` object by calling the built-in Play welcome
-     * template and passing a `String` message.
-     *@
-    @play20.welcome(message, style = "Java")
+<h1>BIENVENIDO QUERIDO USUARIO</h1>
+
+<form action="@routes.CaudalController.createCaudal()" method="post">
+    <label>caudal</label>
+    <input type="text" name="caudal"/>
+    <button>add caudal</button>
+</form>
+</br>
+<form action="@routes.CampoController.createCampo()" method="post">
+   <label>departamento</label> <input type="text" name="departamento" />
+    <label>latitud</label> <input type="text" name="latitud" />
+    <label>longitud</label> <input type="text" name="longitud" />
+
+    <button>add campo</button>
+</form>
+</br>
+<form action="@routes.ConsumoEnergiaController.createConsumoEnergia()" method="post">
+    <label>consumo</label> <input type="text" name="consumo" />
+
+
+    <button>add Consumo Energia</button>
+
+</form>
+</br>
+<form action="@routes.JefeAsignadoController.createJefeAsignado()" method="post">
+    <label>nombre</label> <input type="text" name="nombre" />
+    <label>cedula</label> <input type="text" name="cedula" />
+    <label>edad</label> <input type="text" name="edad" />
+    <label>telefono</label> <input type="text" name="telefono" />
+    <label>direccion</label> <input type="text" name="direccion" />
+    <label>nacionalidad</label> <input type="text" name="nacionalidad" />
+
+
+    <button>add JefeAsignado</button>
+</form>
+</br>
+<form action="@routes.JefeDeCampoController.createJefeDeCampo()" method="post">
+    <label>nombre</label> <input type="text" name="nombre" />
+    <label>cedula</label> <input type="text" name="cedula" />
+    <label>edad</label> <input type="text" name="edad" />
+    <label>telefono</label> <input type="text" name="telefono" />
+    <label>direccion</label> <input type="text" name="direccion" />
+    <label>nacionalidad</label> <input type="text" name="nacionalidad" />
+
+
+    <button>add Jefe De Campo</button>
+</form>
+</br>
+<form action="@routes.PozoController.createPozo()" method="post">
+    <label>estado</label> <input type="text" name="estado" />
+    <label>latitud</label> <input type="text" name="latitud" />
+    <label>longitud</label> <input type="text" name="longitud" />
+
+    <button>add pozo</button>
+</form>
+</br>
+<form action="@routes.SensorEmergenciaController.createSensorEmergencia()" method="post">
+    <label>Emergencia</label> <input type="text" name="emergencia" />
+
+
+    <button>add emergencia</button>
+</form>
+</br>
+<form action="@routes.SensorTemperaturaController.createSensorTemperatura()" method="post">
+    <label>Temperatura</label> <input type="text" name="temperatura" />
+
+
+    <button>add temperatura</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
