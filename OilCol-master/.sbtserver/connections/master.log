@@ -200,3 +200,9 @@ New client attempting to connect on port: 59875-59397
 This client on port 59875 has uuid 6f8f46b3-1eeb-4da6-ad8b-e0f79f24d9fd configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
 Connected Clients: activator-a264851e-b466-4b48-8fb0-697e5061b6a9, play-fork-run-6f8f46b3-1eeb-4da6-ad8b-e0f79f24d9fd
 Taking next connection to: 59397
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 59397
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 59397
