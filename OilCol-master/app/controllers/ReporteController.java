@@ -12,6 +12,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import models.*;
 import views.html.*;
 import play.data.Form;
+import models.SensoresSegurosEntity;
+import java.util.List;
 
 public class ReporteController  extends Controller
 {
@@ -54,11 +56,26 @@ public class ReporteController  extends Controller
 
 
 
-    public CompletionStage<Result> createReporte(){
+    public CompletionStage<Result> createReporte() {
         MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
         JsonNode nReporte = request().body().asJson();
-      ReporteEntity con = Form.form(ReporteEntity.class).bindFromRequest().get();
-        return CompletableFuture.supplyAsync(
+        ReporteEntity con = Form.form(ReporteEntity.class).bindFromRequest().get();
+        String contra = con.getContrasenaSensor();
+        String id = con.getIdSensor();
+
+        List x = SensoresSegurosEntity.FINDER.where().like("idPozo", "%"+id+"%").findList();
+
+        for(int i = 0; i<x.size();i++)
+        {
+            SensoresSegurosEntity s = (SensoresSegurosEntity)x.get(i);
+            if(!s.getContraseña().equals(contra))
+            {
+               return null;
+            }
+        }
+
+
+            return CompletableFuture.supplyAsync(
                 ()->{
                     con.save();
                     return con;

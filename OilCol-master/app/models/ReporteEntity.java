@@ -2,6 +2,7 @@ package models;
 
 import javax.persistence.*;
 import com.avaje.ebean.Model;
+import java.util.List;
 
 @Entity
 @Table(name = "ReporteEntity")
@@ -17,7 +18,9 @@ public class ReporteEntity extends Model {
     @Column(name = "descripcion")
     private String descripcion;
 
-    private Long idSensor;
+    private String idSensor;
+
+    private String contrasenaSensor;
 
     private Long idPozo;
 
@@ -26,12 +29,13 @@ public class ReporteEntity extends Model {
 
 
 
-    public ReporteEntity ( Long idS, Long idP, String esta, String tipoS)
+    public ReporteEntity ( String idS, Long idP, String esta, String tipoS,String contra)
     {
         idSensor = idS;
         idPozo = idP;
         descripcion = esta;
         tipoSensor = tipoS;
+        this.setContrasenaSensor(contra);
 
     }
 
@@ -67,14 +71,14 @@ public class ReporteEntity extends Model {
     /**
      * @return the idSensor
      */
-    public Long getIdSensor() {
+    public String getIdSensor() {
         return idSensor;
     }
 
     /**
      * @param idSensor the idSensor to set
      */
-    public void setIdSensor(Long idSensor) {
+    public void setIdSensor(String idSensor) {
         this.idSensor = idSensor;
     }
 
@@ -107,5 +111,11 @@ public class ReporteEntity extends Model {
     }
 
 
+    public String getContrasenaSensor() {
+        return contrasenaSensor;
+    }
 
+    public void setContrasenaSensor(String contrasenaSensor) {
+        this.contrasenaSensor = contrasenaSensor;
+    }
 }

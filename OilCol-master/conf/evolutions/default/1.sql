@@ -66,7 +66,8 @@ create table productentity (
 create table ReporteEntity (
   id                        bigint not null,
   descripcion               varchar(255),
-  id_sensor                 bigint,
+  id_sensor                 varchar(255),
+  contrasena_sensor         varchar(255),
   id_pozo                   bigint,
   tipo_sensor               varchar(255),
   constraint pk_ReporteEntity primary key (id))
@@ -82,6 +83,13 @@ create table SensorTemperaturaEntity (
   id                        bigint not null,
   temperatura               float,
   constraint pk_SensorTemperaturaEntity primary key (id))
+;
+
+create table SensoresSeguros (
+  id                        bigint not null,
+  id_pozo                   varchar(255),
+  contraseña                varchar(255),
+  constraint pk_SensoresSeguros primary key (id))
 ;
 
 create sequence Campo;
@@ -103,6 +111,8 @@ create sequence Reporte;
 create sequence SensorEmergencia;
 
 create sequence SensorTemperatura;
+
+create sequence SensorSeguro;
 
 alter table pozoEntity add constraint fk_pozoEntity_campos_1 foreign key (campos_id) references campoEntity (id);
 create index ix_pozoEntity_campos_1 on pozoEntity (campos_id);
@@ -131,6 +141,8 @@ drop table if exists SensorEmergenciaEntity cascade;
 
 drop table if exists SensorTemperaturaEntity cascade;
 
+drop table if exists SensoresSeguros cascade;
+
 drop sequence if exists Campo;
 
 drop sequence if exists Caudal;
@@ -150,4 +162,6 @@ drop sequence if exists Reporte;
 drop sequence if exists SensorEmergencia;
 
 drop sequence if exists SensorTemperatura;
+
+drop sequence if exists SensorSeguro;
 
