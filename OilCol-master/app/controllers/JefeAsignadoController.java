@@ -15,7 +15,6 @@ import play.data.Form;
 public class JefeAsignadoController  extends Controller
 {
 
-
     public CompletionStage<Result> getJefesAsignado() {
         MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
 

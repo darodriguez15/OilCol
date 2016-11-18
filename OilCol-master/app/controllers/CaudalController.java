@@ -16,10 +16,6 @@ import play.data.Form;
 public class CaudalController  extends Controller
 {
 
-    public static Result index()
-    {
-        return ok(index.render("Hello World"));
-    }
 
     public CompletionStage<Result> getCaudales() {
         MessageDispatcher jdbcDispatcher = AkkaDispatcher.jdbcDispatcher;
