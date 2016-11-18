@@ -14,7 +14,7 @@
     <title>New Age - Start Bootstrap Theme</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet"  href="@routes.Assets.versioned("assets/vendor/bootstrap/css/bootstrap.min.css")">
+    <link rel="stylesheet"  href="bootstrap ">
 
     <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -22,14 +22,14 @@
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 
     <!-- Plugin CSS -->
-    <link rel="stylesheet"  href="@routes.Assets.versioned("assets/vendor/font-awesome/css/font-awesome.min.css")">
-    <link rel="stylesheet"  href="@routes.Assets.versioned("assets/vendor/simple-line-icons/css/simple-line-icons.css")">
-    <link rel="stylesheet"  href="@routes.Assets.versioned("assets/vendor/device-mockups/device-mockups.min.css")">
+    <link rel="stylesheet"  href="font-awesome-min ">
+    <link rel="stylesheet"  href="simple-line">
+    <link rel="stylesheet"  href="mockups-min">
 
 
 
     <!-- Theme CSS -->
-    <link rel="stylesheet"  href="@routes.Assets.versioned("assets/css/new-age.min.css")">
+    <link rel="stylesheet"  href="newage">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -75,34 +75,50 @@
 
 
 
-<section class="cta">
-    <div class="cta-content">
-        <div class="container">
-            <h2>Oil Col.<br><br>Software manejador de pozos de petroleo en Colombia.</h2>
-            <a href="#contact" class="btn btn-outline btn-xl page-scroll">Empecemos!</a>
+
+<section id="download" class="download bg-primary text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h2 class="section-heading">Generar reportes</h2>
+                <form action="reportes" method="post">
+                    <table>
+                        <tr>
+                    <label >Descripcion</label> </tr> <tr><input type="text"  name="descripcion" /><br>
+                        </tr>
+                        <tr>
+                    <label>ID sensor</label> </tr> <tr><input type="text" name="idSensor" /><br>
+                        </tr>
+                        <tr>
+                    <label >Contraseña Sensor</label></tr> <tr> <input type="text" name="contrasenaSensor" /><br>
+                        </tr>
+                        <tr>
+                    <label>ID Pozo</label></tr> <tr> <input type="text" name="idPozo" /><br>
+                        </tr>
+                        <tr>
+                    <label>Tipo Sensor</label> </tr> <tr><input type="text" name="tipoSensor" /><br>
+                        </tr>
+
+                        <tr>
+
+
+                    <button   >Crear reporte</button>
+                        </tr>
+                    </table>
+                </form>
+
+            </div>
+            <br>
+            <div>
+
+                    <h3 align="center">Notificacion de Emergencias</h3>
+                    <ul id="emer"></ul>
+
+
+            </div>
         </div>
     </div>
-    <div class="overlay"></div>
 </section>
-
-<section id="contact" class="contact bg-primary">
-    <div class="container">
-        <h2>Por favor escoge tu rol <i class="fa fa-exclamation-circle"></i></h2>
-        <ul class="list-inline list-social">
-            <li></li>
-            <li >
-                <h3>Jefe de Produccion</h3>
-                <a href="jefeP"><i class="fa fa-arrow-right"></i></a>
-            </li>
-            <li></li>
-            <li >
-                <h3>Jefe de Campo</h3>
-                <a href="jefeC"><i class="fa fa-arrow-right"></i></a>
-            </li>
-        </ul>
-    </div>
-</section>
-
 <footer>
     <div class="container">
         <p>&copy; 2016 Start Bootstrap. All Rights Reserved.</p>
@@ -123,20 +139,43 @@
 <!-- jQuery -->
 
 
-<script src="@routes.Assets.versioned("assets/vendor/jquery/jquery.min.js")" ></script>
+<script src="jquery-min" ></script>
 
 
 
 <!-- Bootstrap Core JavaScript -->
 
-<script src="@routes.Assets.versioned("assets/vendor/bootstrap/js/bootstrap.min.js")" ></script>
+<script src="bootstrap-min" ></script>
 
 
 <!-- Plugin JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
 <!-- Theme JavaScript -->
-<script src="@routes.Assets.versioned("assets/js/new-age.min.js")" ></script>
+<script src="new-age" ></script>
+<script>
+    var emerhttp = new XMLHttpRequest();
+    var emer = "/sensoresEmergencia ";
+    emerhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var myArr = JSON.parse(this.responseText);
+            myEmer(myArr);
+        }
+    };
+
+    emerhttp.open("GET", emer, true);
+    emerhttp.send();
+
+    function myEmer(arr) {
+        var out = "";
+        var i;
+        for(i = 0; i < arr.length; i++) {
+            out += '<li> Emergencia '+arr[i].id+' -> ' + arr[i].emergencia ;
+        }
+        document.getElementById("emer").innerHTML = out;
+    }
+
+</script>
 
 
 </body>
