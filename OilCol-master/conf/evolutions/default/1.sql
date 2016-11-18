@@ -92,6 +92,24 @@ create table SensoresSeguros (
   constraint pk_SensoresSeguros primary key (id))
 ;
 
+create table todo (
+  id                        bigserial not null,
+  value                     varchar(1024) not null,
+  user_id                   bigint,
+  constraint pk_todo primary key (id))
+;
+
+create table user (
+  id                        bigserial not null,
+  auth_token                varchar(255),
+  email_address             varchar(256) not null,
+  sha_password              bytea not null,
+  full_name                 varchar(256) not null,
+  creation_date             timestamp not null,
+  constraint uq_user_email_address unique (email_address),
+  constraint pk_user primary key (id))
+;
+
 create sequence Campo;
 
 create sequence Caudal;
@@ -116,6 +134,8 @@ create sequence SensorSeguro;
 
 alter table pozoEntity add constraint fk_pozoEntity_campos_1 foreign key (campos_id) references campoEntity (id);
 create index ix_pozoEntity_campos_1 on pozoEntity (campos_id);
+alter table todo add constraint fk_todo_user_2 foreign key (user_id) references user (id);
+create index ix_todo_user_2 on todo (user_id);
 
 
 
@@ -142,6 +162,10 @@ drop table if exists SensorEmergenciaEntity cascade;
 drop table if exists SensorTemperaturaEntity cascade;
 
 drop table if exists SensoresSeguros cascade;
+
+drop table if exists todo cascade;
+
+drop table if exists user cascade;
 
 drop sequence if exists Campo;
 
