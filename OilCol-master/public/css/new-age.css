@@ -225,8 +225,14 @@ section h2 {
   font-size: 50px;
 }
 section.download {
-  padding: 150px 0;
   position: relative;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+  background-image: url('../img/preciopetroleo.jpg');
+  padding: 250px 0;
 }
 section.download h2 {
   margin-top: 0;
