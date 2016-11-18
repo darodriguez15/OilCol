@@ -14,8 +14,9 @@ GET     /bootstrap                  controllers.Assets.at(path="/public/vendor/b
 GET     /fonts/fontawesome-webfont.woff2                 controllers.Assets.at(path="/public/vendor/font-awesome/fonts", file="/fontawesome-webfont.woff2")
 
 GET     /img/bg-cta.jpg                 controllers.Assets.at(path="/public/img", file="/bg-cta.jpg")
-
-
+GET     /img/ca.png                 controllers.Assets.at(path="/public/img", file="/ca.png")
+GET     /img/preciopetroleo.jpg                 controllers.Assets.at(path="/public/img", file="/preciopetroleo.jpg")
+GET     /img/ol.jpg                 controllers.Assets.at(path="/public/img", file="/ol.jpg")
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
 # An example controller showing how to use dependency injection
