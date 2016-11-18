@@ -76,9 +76,7 @@ public class User extends Model {
     }
     
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    @JsonIgnore
-    public List<Todo> todos = new ArrayList<Todo>();
+   
     
     
     public User() {
