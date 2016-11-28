@@ -92,16 +92,7 @@ create table SensoresSeguros (
   constraint pk_SensoresSeguros primary key (id))
 ;
 
-create table user (
-  id                        bigserial not null,
-  auth_token                varchar(255),
-  email_address             varchar(256) not null,
-  sha_password              bytea not null,
-  full_name                 varchar(256) not null,
-  creation_date             timestamp not null,
-  constraint uq_user_email_address unique (email_address),
-  constraint pk_user primary key (id))
-;
+
 
 create sequence Campo;
 
