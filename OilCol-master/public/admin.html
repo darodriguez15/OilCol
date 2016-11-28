@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>OIL COL - Jefe de Campo</title>
+    <title>OIL COL - Administrador</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet"  href="bootstrap ">
@@ -51,7 +51,7 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">Jefe de Campo</a>
+            <a class="navbar-brand page-scroll" href="#page-top">Administrador</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -77,36 +77,46 @@
 <section id="download" class="download bg-primary text-center">
     <div class="container" ng-app="showApp" ng-controller="mainController">
         <div class="control-group form-group">
+            <!-- Welcome -->
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-            <h2 class="section-heading h2">Bienvenido Jefe de Campo</h2><br>
+                    <h2 class="section-heading h2">Bienvenido Administrador</h2><br>
+                </div>
             </div>
+
+            <!-- funciones Principales -->
+            <div class="row">
+                <div class="col-md-9 ">
+
+                    <h1>Funciones</h1>
+
+                    <br>
+                    <br>
+                    <br>
+                    <button class="btn btn-warning"  ng-click="campos = !campos"> CAMPOS</button>
+                    <button class="btn btn-warning"  ng-click="pozos = !pozos"> POZOS</button>
+                    <button class="btn btn-warning" ng-click="reportes = !reportes"> REPORTES</button>
+                    <button class="btn btn-warning"  ng-click="sensores = !sensores">SENSORES</button>
+                    <button class="btn btn-warning"  ng-click="jefep = !jefep">JEFES DE PRODUCCION</button>
+                    <button class="btn btn-warning"  ng-click="jefec = !jefec">JEFES DE CAMPO</button>
+
+                    <br>
+                    <br>
+                    <br>
+
+                </div>
+                <div class="col-md-3" >
+
+
+                    <h3 align="center" class="alert">Notificacion de Emergencias</h3>
+                    <ul id="emer"></ul>
+
                 </div>
 
 
 
-                <div class="row">
-                      <div class="col-md-9 ">
-
-                <h1>Funciones</h1>
-
-                <br>
-                <br>
-                <br>
-                <button class="btn btn-warning" ng-click="reportes = !reportes">GENERAR REPORTES</button>
-                <button class="btn btn-warning"  ng-click="pozos = !pozos">PARAR POZO</button>
-                <button class="btn btn-warning"  ng-click="emergencia = !emergencia">NOTIFICAR EMERGENCIA</button>
-                <button class="btn btn-warning"  ng-click="mapa = !mapa">MAPA</button>
-
-                <br>
-                <br>
-                <br>
-
-
-
-
-
-
+            </div>
+            <!-- funciones reportes -->
             <div class="row"  ng-show="reportes">
                 <div class="col-md-8 col-md-offset-2">
                     <h1 class="section-heading">Generar reportes</h1>
@@ -138,66 +148,54 @@
                 </div>
 
             </div>
-
-
+            <!-- funciones pozos -->
             <div class="row" ng-show="pozos">
                 <div class="col-md-5 col-md-offset-2 ">
-            <h1 class="section-heading">Parar un pozo</h1>
+                    <h1 class="section-heading">Parar un pozo</h1>
 
-                <table>
-                    <tr>
-                        <label >ID POZO</label> </tr> <tr><input  class="form-control" type="text"  id="elid"  required data-validation-required-message="Ingrese un Id"/><br>
-                </tr>
-                    <tr>
-                        <div class="control-group form-group">
-                            <div class="controls">
-                        <label >Estado</label>
-                        <select name="estado" class="form-control" id="cambioestado">
-                        <option>Parado</option>
-                        <option>Produccion</option>
+                    <table>
+                        <tr>
+                            <label >ID POZO</label> </tr> <tr><input  class="form-control" type="text"  id="elid"  required data-validation-required-message="Ingrese un Id"/><br>
+                    </tr>
+                        <tr>
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label >Estado</label>
+                                    <select name="estado" class="form-control" id="cambioestado">
+                                        <option>Parado</option>
+                                        <option>Produccion</option>
 
-                    </select><br>
+                                    </select><br>
                                 </div>
                             </div>
-                    </tr>
-                    <tr>
+                        </tr>
+                        <tr>
 
 
-                        <button  class="btn btn-primary" onclick="cambiarEstado()">Parar Pozo</button>
-                    </tr>
-                </table>
-</div>
-        </div>
-        <div class="row" ng-show="emergencia">
-            <div class="col-md-5 col-md-offset-2 ">
-            <h1 class="section-heading">Notificar Emergencia</h1>
-
-            <table>
-                <tr>
-                    <form action="jefeC" method="GET">
-                      <input id="newEm"type="text" class="form-control" name="emergencia" required data-validation-required-message="Ingrese una emergencia " />
-                        <br>
-                        <button   class="btn btn-primary" onclick="addEmer()" >add emergencia</button>
-                    </form>
-                </tr>
-
-
-            </table>
-        </div>
-        </div>
-            <div class="row">
-        <div ng-show="mapa" class="col-md-5 col-md-offset-2" id="map1" style="width:360px;height:200px;"></div>
-            </div>
-
-            </div>
-                         <div class="col-md-3" >
-
-
-                           <h3 align="center" class="alert">Notificacion de Emergencias</h3>
-                         <ul id="emer"></ul>
-
-                 </div>
+                            <button  class="btn btn-primary" onclick="cambiarEstado()">Parar Pozo</button>
+                        </tr>
+                    </table>
                 </div>
+            </div>
+            <!-- funciones emergencias -->
+            <div class="row" ng-show="emergencia">
+                <div class="col-md-5 col-md-offset-2 ">
+                    <h1 class="section-heading">Notificar Emergencia</h1>
+
+                    <table>
+                        <tr>
+                            <form action="jefeC" method="GET">
+                                <input id="newEm"type="text" class="form-control" name="emergencia" required data-validation-required-message="Ingrese una emergencia " />
+                                <br>
+                                <button   class="btn btn-primary" onclick="addEmer()" >add emergencia</button>
+                            </form>
+                        </tr>
+
+
+                    </table>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
@@ -239,8 +237,8 @@
         if (GBrowserIsCompatible()) {
             var map = new GMap2(document.getElementById("map1"));
             map.setCenter(new GLatLng(4.602419,-74.065601), 4);}}
-    window.onload=function(){simple();};
-//]]>
+    window.onload=function(){simple();}
+    //]]>
 </script>
 <script>
 
