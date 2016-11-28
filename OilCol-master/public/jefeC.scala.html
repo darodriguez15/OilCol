@@ -51,7 +51,7 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">Bienvenido Jefe de Campo</a>
+            <a class="navbar-brand page-scroll" href="#page-top">Jefe de Campo</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -75,90 +75,128 @@
 
 
 <section id="download" class="download bg-primary text-center">
-    <div class="container">
+    <div class="container" ng-app="showApp" ng-controller="mainController">
+        <div class="control-group form-group">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+            <h2 class="section-heading h2">Bienvenido Jefe de Campo</h2><br>
+            </div>
+                </div>
+
+
+
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h2 class="section-heading h2">Bienvenido Jefe de Campo</h2><br>
-                <h1 class="section-heading">Generar reportes</h1>
-                <form action="reportes" method="post">
-                    <table>
-                        <tr>
-                    <label >Descripcion</label> </tr> <tr><input type="text"  name="descripcion" /><br>
-                        </tr>
-                        <tr>
-                    <label>ID sensor</label> </tr> <tr><input type="text" name="idSensor" /><br>
-                        </tr>
-                        <tr>
-                    <label >Contraseña Sensor</label></tr> <tr> <input type="password" name="contrasenaSensor" /><br>
-                        </tr>
-                        <tr>
-                    <label>ID Pozo</label></tr> <tr> <input type="text" name="idPozo" /><br>
-                        </tr>
-                        <tr>
-                    <label>Tipo Sensor</label> </tr> <tr><input type="text" name="tipoSensor" /><br>
-                        </tr>
+            <div class="col-md-9 ">
 
-                        <tr>
+                <h1>Funciones</h1>
 
+                <br>
+                <br>
+                <br>
+                <button class="btn btn-warning" ng-click="reportes = !reportes">GENERAR REPORTES</button>
+                <button class="btn btn-warning"  ng-click="pozos = !pozos">PARAR POZO</button>
+                <button class="btn btn-warning"  ng-click="emergencia = !emergencia">NOTIFICAR EMERGENCIA</button>
+                <button class="btn btn-warning"  ng-click="mapa = !mapa">MAPA</button>
 
-                    <button   >Crear reporte</button>
-                        </tr>
-                    </table>
-                </form>
+                <br>
+                <br>
+                <br>
 
             </div>
-            <br>
-            <div>
+                        <div class="col-md-3" >
 
-                    <h3 align="center">Notificacion de Emergencias</h3>
+
+                    <h3 align="center" class="alert">Notificacion de Emergencias</h3>
                     <ul id="emer"></ul>
 
-            </div>
+                </div>
 
 
 
         </div>
+            <div class="row"  ng-show="reportes">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="section-heading">Generar reportes</h1>
+                    <form action="reportes" method="post">
+                        <table>
+                            <tr>
+                                <label >Descripcion</label> </tr> <tr><input type="text" class="form-control"  name="descripcion" /><br>
+                        </tr>
+                            <tr>
+                                <label>ID sensor</label> </tr> <tr><input type="text" class="form-control" name="idSensor" required data-validation-required-message="Ingrese un Id" /><br>
+                        </tr>
+                            <tr>
+                                <label >Contraseña Sensor</label></tr> <tr> <input type="password" class="form-control" name="contrasenaSensor"  required data-validation-required-message="Ingrese contraseña"/><br>
+                        </tr>
+                            <tr>
+                                <label>ID Pozo</label></tr> <tr> <input type="text"  class="form-control"name="idPozo" required data-validation-required-message="Ingrese un Id"/><br>
+                        </tr>
+                            <tr>
+                                <label>Tipo Sensor</label> </tr> <tr><input type="text" class="form-control" name="tipoSensor" required data-validation-required-message="Ingrese un tipo de sensor" /><br>
+                        </tr>
 
-        <div class="row">
+                            <tr>
+
+
+                                <button   class="btn btn-primary" >Crear reporte</button>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+
+            </div>
+
+
+            <div class="row" ng-show="pozos">
+                <div class="col-md-5 col-md-offset-2 ">
             <h1 class="section-heading">Parar un pozo</h1>
 
                 <table>
                     <tr>
-                        <label >ID POZO</label> </tr> <tr><input type="text"  id="elid" /><br>
+                        <label >ID POZO</label> </tr> <tr><input  class="form-control" type="text"  id="elid"  required data-validation-required-message="Ingrese un Id"/><br>
                 </tr>
-                    <tr> <label >Estado</label>
-                        <select name="estado" id="cambioestado">
+                    <tr>
+                        <div class="control-group form-group">
+                            <div class="controls">
+                        <label >Estado</label>
+                        <select name="estado" class="form-control" id="cambioestado">
                         <option>Parado</option>
                         <option>Produccion</option>
 
                     </select><br>
+                                </div>
+                            </div>
                     </tr>
                     <tr>
 
 
-                        <button onclick="cambiarEstado()">Parar Pozo</button>
+                        <button  class="btn btn-primary" onclick="cambiarEstado()">Parar Pozo</button>
                     </tr>
                 </table>
-
+</div>
         </div>
-        <div class="row">
+        <div class="row" ng-show="emergencia">
+            <div class="col-md-5 col-md-offset-2 ">
             <h1 class="section-heading">Notificar Emergencia</h1>
 
             <table>
                 <tr>
-                    <form action="sensoresEmergencia" method="post">
-                        <label>Emergencia</label> <input type="text" name="emergencia" />
-                        <button>add emergencia</button>
+                    <form action="jefeC" method="GET">
+                      <input id="newEm"type="text" class="form-control" name="emergencia" required data-validation-required-message="Ingrese una emergencia " />
+                        <br>
+                        <button   class="btn btn-primary" onclick="addEmer()" >add emergencia</button>
                     </form>
                 </tr>
 
 
             </table>
-
         </div>
-        <div class="row" id="map1" style="width:360px;height:200px;border:2px solid blue;"></div>
-
+        </div>
+            <div class="row">
+        <div ng-show="mapa" class="col-md-5 col-md-offset-2" id="map1" style="width:360px;height:200px;"></div>
+            </div>
     </div>
+        </div>
 </section>
 <footer>
     <div class="container">
@@ -178,28 +216,19 @@
 </footer>
 
 <!-- jQuery -->
-
-
 <script src="jquery-min" ></script>
-
-
-
 <!-- Bootstrap Core JavaScript -->
-
 <script src="bootstrap-min" ></script>
-
-
 <!-- Plugin JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <!-- Theme JavaScript -->
 <script src="new-age" ></script>
 
+<script src="jefec" ></script>
 
 <script type="text/javascript"
         src="http://www.google.com/jsapi?key=AIzaSyBLuP2-4pNknjf50P8CZ1j75RDYugS6Ak0"></script>
-
-
 <script type="text/javascript">
     //<![CDATA[
     google.load('maps', '2', {callback:simple});var map;
@@ -210,34 +239,34 @@
     window.onload=function(){simple();}
 //]]>
 </script>
-
-
 <script>
 
     function cambiarEstado() {
-        var emerhttp = new XMLHttpRequest();
+
+        var estahttp = new XMLHttpRequest();
         var elid = document.getElementById("elid").value;
         var estado = document.getElementById("cambioestado").value;
-        var emer = "/cpozos/" + elid + "/"+ estado;
-        emerhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var myArr = JSON.parse(this.responseText);
-                myEmer(myArr);
-            }
-        };
+        var esta = "/cpozos/" + elid + "/"+ estado;
+        estahttp.open("GET", esta, true);
+        estahttp.send();
 
-        emerhttp.open("GET", emer, true);
-        emerhttp.send();
 
-        function myEmer(arr) {
-            var out = "";
-            var i;
-            for (i = 0; i < arr.length; i++) {
-                out += '<li> Se cambio el estado del pozo: ' + arr[i].id + ' -> ' + arr[i].estado;
-            }
-            document.getElementById("emer").innerHTML = out;
-        }
     }
+
+
+    function addEmer(){
+
+        var holi = new XMLHttpRequest();
+        var pa = "/sensoresEmergencia ";
+
+        var elid = document.getElementById("newEm").value;
+        holi.open("POST", pa );
+        holi.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        holi.send(JSON.stringify({id:"", emergencia: elid }));
+    }
+
+
+
 
     var emerhttp = new XMLHttpRequest();
     var emer = "/sensoresEmergencia ";
@@ -251,6 +280,7 @@
     emerhttp.open("GET", emer, true);
     emerhttp.send();
 
+
     function myEmer(arr) {
         var out = "";
         var i;
@@ -260,7 +290,6 @@
         document.getElementById("emer").innerHTML = out;
     }
 </script>
-
 
 </body>
 
