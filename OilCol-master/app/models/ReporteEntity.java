@@ -18,12 +18,16 @@ public class ReporteEntity extends Model {
     @Column(name = "descripcion")
     private String descripcion;
 
+    @Column(name = "idSensor")
     private String idSensor;
 
+    @Column(name = "contrasenaSensor")
     private String contrasenaSensor;
-
+    
+    @Column(name = "idPozo")
     private Long idPozo;
 
+    @Column(name = "tipoSensor")
     private String tipoSensor;
 
 

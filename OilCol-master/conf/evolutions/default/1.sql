@@ -66,10 +66,10 @@ create table productentity (
 create table ReporteEntity (
   id                        bigint not null,
   descripcion               varchar(255),
-  id_sensor                 varchar(255),
-  contrasena_sensor         varchar(255),
-  id_pozo                   bigint,
-  tipo_sensor               varchar(255),
+  idSensor                  varchar(255),
+  contrasenaSensor          varchar(255),
+  idPozo                    bigint,
+  tipoSensor                varchar(255),
   constraint pk_ReporteEntity primary key (id))
 ;
 
