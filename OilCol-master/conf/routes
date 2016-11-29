@@ -7,6 +7,7 @@ GET     /Admin                   controllers.Assets.at(path="/public", file="adm
 GET     /new-age                  controllers.Assets.at(path="/public/js", file="/new-age.min.js")
 GET     /jefec                  controllers.Assets.at(path="/public/js", file="/jefec.js")
 GET     /jefep                  controllers.Assets.at(path="/public/js", file="/jefep.js")
+GET     /aadmin                  controllers.Assets.at(path="/public/js", file="/admin.js")
 GET     /bootstrap-min                  controllers.Assets.at(path="/public/vendor/bootstrap/js", file="/bootstrap.min.js")
 GET     /jquery-min                  controllers.Assets.at(path="/public/vendor/jquery", file="/jquery.min.js")
 GET     /simple-line                 controllers.Assets.at(path="/public/vendor/simple-line-icons/css", file="/simple-line-icons.css")

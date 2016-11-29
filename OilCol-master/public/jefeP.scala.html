@@ -88,7 +88,7 @@
         <div class="row">
             <div class="col-md-12 ">
 
-                <h1>Funciones</h1>
+
 
                 <br>
                 <br>
@@ -110,28 +110,28 @@
             <div class="row"  ng-show="reportes">
                 <div class="col-md-8 col-md-offset-2">
                     <h1 class="section-heading">Generar reportes</h1>
-                    <form action="reportes" method="post">
+                    <form action="jefeP" method="get">
                         <table>
                             <tr>
                                 <label >Descripcion</label> </tr> <tr><input type="text" class="form-control"  name="descripcion" /><br>
                         </tr>
                             <tr>
-                                <label>ID sensor</label> </tr> <tr><input type="text" class="form-control" name="idSensor" required data-validation-required-message="Ingrese un Id" /><br>
+                                <label>ID sensor *</label> </tr> <tr><input type="text" class="form-control" name="idSensor" required data-validation-required-message="Ingrese un Id" /><br>
                         </tr>
                             <tr>
-                                <label >Contraseña Sensor</label></tr> <tr> <input type="password" class="form-control" name="contrasenaSensor"  required data-validation-required-message="Ingrese contraseña"/><br>
+                                <label >Contraseña Sensor *</label></tr> <tr> <input type="password" class="form-control" name="contrasenaSensor"  required data-validation-required-message="Ingrese contraseña"/><br>
                         </tr>
                             <tr>
-                                <label>ID Pozo</label></tr> <tr> <input type="text"  class="form-control"name="idPozo" required data-validation-required-message="Ingrese un Id"/><br>
+                                <label>ID Pozo *</label></tr> <tr> <input type="text"  class="form-control"name="idPozo" required data-validation-required-message="Ingrese un Id"/><br>
                         </tr>
                             <tr>
-                                <label>Tipo Sensor</label> </tr> <tr><input type="text" class="form-control" name="tipoSensor" required data-validation-required-message="Ingrese un tipo de sensor" /><br>
+                                <label>Tipo Sensor *</label> </tr> <tr><input type="text" class="form-control" name="tipoSensor" required data-validation-required-message="Ingrese un tipo de sensor" /><br>
                         </tr>
 
                             <tr>
 
 
-                                <button   class="btn btn-primary" >Crear reporte</button>
+                                <button   onclick="addReporte()" class="btn btn-primary" >Crear reporte</button>
                             </tr>
                         </table>
                     </form>
@@ -141,17 +141,17 @@
 
 
             <div class="row" ng-show="pozos">
-                <div class="col-md-5 col-md-offset-2 ">
-            <h1 class="section-heading">Parar un pozo</h1>
+                <div class="col-md-8 col-md-offset-2 ">
+            <h1 class="section-heading">Clausurar un pozo</h1>
 
                 <table>
                     <tr>
-                        <label >ID POZO</label> </tr> <tr><input  class="form-control" type="text"  id="elid"  required data-validation-required-message="Ingrese un Id"/><br>
+                        <label >ID Pozo *</label> </tr> <tr><input  class="form-control" type="text"  id="elid"  required data-validation-required-message="Ingrese un Id"/><br>
                 </tr>
                     <tr>
                         <div class="control-group form-group">
                             <div class="controls">
-                        <label >Estado</label>
+                        <label >Estado *</label>
                         <select name="estado" class="form-control" id="cambioestado">
                         <option>Clausurado</option>
 
@@ -163,14 +163,14 @@
                     <tr>
 
 
-                        <button  class="btn btn-primary" onclick="cambiarEstado()">Parar Pozo</button>
+                        <button  class="btn btn-primary" onclick="cambiarEstado()">Clausurar Pozo</button>
                     </tr>
                 </table>
 </div>
         </div>
 
             <div class="row">
-        <div ng-show="mapa" class="col-md-5 col-md-offset-2" id="map1" style="width:360px;height:200px;"></div>
+        <div ng-show="mapa" class="col-md-8 col-md-offset-2" id="map1" style="width:500px;height:500px;"></div>
             </div>
     </div>
         </div>
@@ -212,7 +212,7 @@
     function simple(){
         if (GBrowserIsCompatible()) {
             var map = new GMap2(document.getElementById("map1"));
-            map.setCenter(new GLatLng(4.602419,-74.065601), 4);}}
+            map.setCenter(new GLatLng(4.602419,-74.065601), 7);}}
     window.onload=function(){simple();}
 //]]>
 </script>
@@ -227,21 +227,31 @@
         emerhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var myArr = JSON.parse(this.responseText);
-                myEmer(myArr);
+
             }
         };
 
         emerhttp.open("GET", emer, true);
         emerhttp.send();
+        alert("¡El pozo ha cambiado de estado!");
 
-        function myEmer(arr) {
-            var out = "";
-            var i;
-            for (i = 0; i < arr.length; i++) {
-                out += '<li> Se cambio el estado del pozo: ' + arr[i].id + ' -> ' + arr[i].estado;
-            }
-            document.getElementById("emer").innerHTML = out;
-        }
+
+    }
+
+    function addReporte(){
+
+        var re = new XMLHttpRequest();
+        var reee = "/reportes ";
+
+        var descr = document.getElementById("descr").value;
+        var idSe = document.getElementById("idSensor").value;
+        var contra = document.getElementById("contra").value;
+        var idPo = document.getElementById("idP").value;
+        var tipoSe = document.getElementById("tipoS").value;
+        re.open("POST", reee );
+        re.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        re.send(JSON.stringify({id:"", descripcion: descr,idSensor: idSe,contrasena: contra,idPozo:idPo,tiposensor:tipoSe }));
+        alert("¡Se añadio un nevo reporte!");
     }
 
 

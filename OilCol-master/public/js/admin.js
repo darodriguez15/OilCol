@@ -6,13 +6,14 @@ var showApp = angular.module('showApp', [])
     .controller('mainController', function($scope) {
 
         $scope.reportes = false;
+        $scope.campos = false;
         $scope.pozos = false;
-        $scope.emergencia = false;
-        $scope.mapa = false;
+        $scope.sensores = false;
+        $scope.jefec = false;
+        $scope.jefep = false;
 
 
 
-        this.registrarHorario = function ()
-        {}
+
     });
 

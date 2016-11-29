@@ -92,8 +92,6 @@ create table SensoresSeguros (
   constraint pk_SensoresSeguros primary key (id))
 ;
 
-
-
 create sequence Campo;
 
 create sequence Caudal;
@@ -144,8 +142,6 @@ drop table if exists SensorEmergenciaEntity cascade;
 drop table if exists SensorTemperaturaEntity cascade;
 
 drop table if exists SensoresSeguros cascade;
-
-drop table if exists user cascade;
 
 drop sequence if exists Campo;
 

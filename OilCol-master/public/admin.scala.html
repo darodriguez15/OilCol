@@ -1,0 +1,756 @@
+
+
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>OIL COL - Administrador</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet"  href="bootstrap ">
+
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet"  href="font-awesome-min ">
+    <link rel="stylesheet"  href="simple-line">
+    <link rel="stylesheet"  href="mockups-min">
+
+
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet"  href="newage">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top">
+
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">Administrador</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="page-scroll" href="/">HOME</a>
+                </li>
+
+
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+
+
+
+
+
+<section id="download" class="download bg-primary text-center">
+    <div class="container" ng-app="showApp" ng-controller="mainController">
+        <div class="control-group form-group">
+            <!-- Welcome -->
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h2 class="section-heading h2">Bienvenido Administrador</h2><br>
+                </div>
+            </div>
+
+            <!-- funciones Principales -->
+            <div class="row">
+                <div class="col-md-9  col-md-offset-2">
+
+
+
+                    <br>
+                    <br>
+                    <br>
+                    <button class="btn btn-warning"  ng-click="campos = !campos" onclick="mostrarCampos()"> CAMPOS</button>
+                    <button class="btn btn-warning"  ng-click="pozos = !pozos" onclick="mostrarPozos()"> POZOS</button>
+                    <button class="btn btn-warning" ng-click="reportes = !reportes" onclick="mostrarReportes()"> REPORTES</button>
+                    <button class="btn btn-warning"  ng-click="sensores = !sensores">SENSORES</button>
+                    <button class="btn btn-warning"  ng-click="jefep = !jefep">JEFES DE PRODUCCION</button>
+                    <button class="btn btn-warning"  ng-click="jefec = !jefec">JEFES DE CAMPO</button>
+
+                    <br>
+                    <br>
+                    <br>
+
+                </div>
+
+
+
+
+            </div>
+
+            <!-- funciones campos -->
+            <div class="row" ng-show="campos">
+                <div class="col-md-8" >
+                    <h1 class="section-heading">Crear Campo</h1>
+                    <form action="Admin" >
+                        <table>
+
+                            <tr>
+                                <label>ID *</label> </tr> <tr><input id ="idCampo" type="number" class="form-control" name="id" required data-validation-required-message="Ingrese un Id" /><br>
+                        </tr>
+                            <tr>
+                                <label >Departamento *</label></tr> <tr> <input id="depto" type="text" class="form-control" name="departamento"  required data-validation-required-message="Ingrese departamento"/><br>
+                        </tr>
+                            <tr>
+                                <label>Latitud *</label></tr> <tr> <input id="lati" type="text"  class="form-control"name="latitud"  required data-validation-required-message="Ingrese Latitud"/><br>
+                        </tr>
+                            <tr>
+                                <label>Longitud</label> </tr> <tr><input id="long" type="text" class="form-control" name="longitud"  required data-validation-required-message="Ingrese Longitud" /><br>
+                        </tr>
+
+                            <tr>
+
+
+                                <button   onclick="addCampos()" class="btn btn-primary" >Crear Campo</button>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+
+                <div class="col-md-4" >
+
+
+                    <h3 align="center" class="alert">Campos Actuales</h3>
+                    <ul id="camposActuales"></ul>
+
+                </div>
+            </div>
+            <!-- funciones pozos -->
+            <div class="row" ng-show="pozos">
+                <div class="col-md-8" >
+                    <h1 class="section-heading">Crear Pozo</h1>
+                    <form action="Admin" >
+                        <table>
+
+                            <tr>
+                                <label>ID *</label> </tr> <tr><input id ="idPozo" type="number" class="form-control" name="id" required data-validation-required-message="Ingrese un Id" /><br>
+                        </tr>
+                            <tr>
+                                <label >Estado*</label>
+                                <select name="estado" class="form-control" id="estad">
+                                    <option>Parado</option>
+                                    <option>Produccion</option>
+                                    <option>Clausurado</option>
+                                </select><br>
+
+                            </tr>
+                            <tr>
+                                <label>Latitud *</label></tr> <tr> <input id="latiP" type="text"  class="form-control"name="latitud"  required data-validation-required-message="Ingrese Latitud"/><br>
+                        </tr>
+                            <tr>
+                                <label>Longitud*</label> </tr> <tr><input id="longP" type="text" class="form-control" name="longitud"  required data-validation-required-message="Ingrese Longitud" /><br>
+                        </tr>
+
+
+                            <tr>
+
+
+                                <button   onclick="addPozos()" class="btn btn-primary" >Crear Pozo</button>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+
+                <div class="col-md-4" >
+
+
+                    <h3 align="center" class="alert">Pozos Actuales</h3>
+                    <ul id="pozosActuales"></ul>
+                </div>
+            </div>
+            <!-- funciones reportes -->
+            <div class="row"  ng-show="reportes">
+                <div class="col-md-8 ">
+                    <h1 class="section-heading">Generar reportes</h1>
+                    <form action="Admin" method="get">
+                        <table>
+                            <tr>
+                                <label >Descripcion</label> </tr> <tr><input type="text" class="form-control"  name="descripcion" /><br>
+                        </tr>
+                            <tr>
+                                <label>ID sensor</label> </tr> <tr><input type="text" class="form-control" name="idSensor" required data-validation-required-message="Ingrese un Id" /><br>
+                        </tr>
+                            <tr>
+                                <label >Contraseña Sensor</label></tr> <tr> <input type="password" class="form-control" name="contrasenaSensor"  required data-validation-required-message="Ingrese contraseña"/><br>
+                        </tr>
+                            <tr>
+                                <label>ID Pozo</label></tr> <tr> <input type="text"  class="form-control"name="idPozo" required data-validation-required-message="Ingrese un Id"/><br>
+                        </tr>
+                            <tr>
+                                <label>Tipo Sensor</label> </tr> <tr><input type="text" class="form-control" name="tipoSensor" required data-validation-required-message="Ingrese un tipo de sensor" /><br>
+                        </tr>
+
+                            <tr>
+
+
+                                <button  onclick="addReporte()" class="btn btn-primary" >Crear reporte</button>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div class="col-md-4" >
+
+
+                    <h3 align="center" class="alert">Reportes</h3>
+                    <ul id="reportesActuales"></ul>
+                </div>
+            </div>
+            <!-- funciones sensores -->
+            <div class="row" ng-show="sensores">
+
+                <div class="col-md-3  ">
+
+
+                        <h3 align="center" class="alert">Notificacion de Emergencias</h3>
+                        <ul id="emer"></ul>
+
+                </div>
+                <div class="col-md-3  ">
+
+
+                        <h3 align="center" class="alert">Notificacion de Caudal</h3>
+                        <ul id="cau"></ul>
+
+                </div>
+                <div class="col-md-3  ">
+
+
+
+                        <h3 align="center" class="alert">Notificacion de Consumo Energia</h3>
+                        <ul id="consu"></ul>
+
+
+                </div>
+                <div class="col-md-3  ">
+
+
+
+                        <h3 align="center" class="alert">Notificacion de Temperatura</h3>
+                        <ul id="temp"></ul>
+
+
+                </div>
+            </div>
+
+            <!-- funciones jefe P -->
+            <div class="row" ng-show="jefep">
+                <div class="col-md-8" >
+                    <h1 class="section-heading">Crear Jefe de Produccion</h1>
+                    <form action="Admin" >
+                        <table>
+
+                            <tr>
+                                <label>ID *</label> </tr> <tr><input id ="idJP" type="number" class="form-control" name="id" required data-validation-required-message="Ingrese un Id" /><br>
+                        </tr>
+                            <tr>
+                                <label >Nombre *</label></tr> <tr> <input id="nombreJP" type="text" class="form-control" name="nombre"  required data-validation-required-message="Ingrese nombre"/><br>
+                        </tr>
+                            <tr>
+                            <label >Cedula *</label></tr> <tr> <input id="cedulaJP" type="number" class="form-control" name="cedula"  required data-validation-required-message="Ingrese cedula"/><br>
+                        </tr>
+                            <tr>
+                                <label>Edad *</label></tr> <tr> <input id="edadJP" type="number"  class="form-control"name="edad"  required data-validation-required-message="Ingrese edad"/><br>
+                        </tr>
+                            <tr>
+                                <label>Telefono</label> </tr> <tr><input id="telJP" type="tel" class="form-control" name="telefono"  required data-validation-required-message="Ingrese telefono" /><br>
+                        </tr>
+                            <tr>
+                                <label>Direccion </label></tr> <tr> <input id="dirJP" type="text"  class="form-control"name="direccion"  required data-validation-required-message="Ingrese direccion"/><br>
+                        </tr>
+                            <tr>
+                                <label>Nacionalidad</label> </tr> <tr><input id="nalJP" type="text" class="form-control" name="nacionalidad"  required data-validation-required-message="Ingrese  nacionalidad" /><br>
+                        </tr>
+
+                            <tr>
+
+
+                                <button   onclick="addJP()" class="btn btn-primary" >Crear Jefe de Produccion</button>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+
+                <div class="col-md-4" >
+
+
+                    <h3 align="center" class="alert">Jefes de Produccion</h3>
+                    <ul id="jefepActuales"></ul>
+
+                </div>
+            </div>
+            <!-- funciones jefe c -->
+            <div class="row" ng-show="jefec">
+                <div class="col-md-8" >
+                    <h1 class="section-heading">Crear Jefe de Campo</h1>
+                    <form action="Admin" >
+                        <table>
+
+                            <tr>
+                                <label>ID *</label> </tr> <tr><input id ="idJC" type="number" class="form-control" name="id" required data-validation-required-message="Ingrese un Id" /><br>
+                        </tr>
+                            <tr>
+                                <label >Nombre *</label></tr> <tr> <input id="nombreJC" type="text" class="form-control" name="nombre"  required data-validation-required-message="Ingrese nombre"/><br>
+                        </tr>
+                            <tr>
+                                <label >Cedula *</label></tr> <tr> <input id="cedulaJC" type="number" class="form-control" name="cedula"  required data-validation-required-message="Ingrese cedula"/><br>
+                        </tr>
+                            <tr>
+                                <label>Edad *</label></tr> <tr> <input id="edadJC" type="number"  class="form-control"name="edad"  required data-validation-required-message="Ingrese edad"/><br>
+                        </tr>
+                            <tr>
+                                <label>Telefono</label> </tr> <tr><input id="telJC" type="tel" class="form-control" name="telefono"  required data-validation-required-message="Ingrese telefono" /><br>
+                        </tr>
+                            <tr>
+                                <label>Direccion </label></tr> <tr> <input id="dirJC" type="text"  class="form-control"name="direccion"  required data-validation-required-message="Ingrese direccion"/><br>
+                        </tr>
+                            <tr>
+                                <label>Nacionalidad</label> </tr> <tr><input id="nalJC" type="text" class="form-control" name="nacionalidad"  required data-validation-required-message="Ingrese  nacionalidad" /><br>
+                        </tr>
+
+                            <tr>
+
+
+                                <button   onclick="addJC()" class="btn btn-primary" >Crear Jefe de Campo</button>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+
+                <div class="col-md-4" >
+
+
+                    <h3 align="center" class="alert">Jefes de Produccion</h3>
+                    <ul id="jefecActuales"></ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <p>&copy; 2016 Start Bootstrap. All Rights Reserved.</p>
+        <ul class="list-inline">
+            <li>
+                <a href="#">Privacy</a>
+            </li>
+            <li>
+                <a href="#">Terms</a>
+            </li>
+            <li>
+                <a href="#">FAQ</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="jquery-min" ></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="bootstrap-min" ></script>
+<!-- Plugin JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<!-- Theme JavaScript -->
+<script src="new-age" ></script>
+
+<script src="aadmin" ></script>
+
+
+<script>
+
+    function cambiarEstado()
+    {
+
+        var estahttp = new XMLHttpRequest();
+        var elid = document.getElementById("elid").value;
+        var estado = document.getElementById("cambioestado").value;
+        var esta = "/cpozos/" + elid + "/"+ estado;
+        estahttp.open("GET", esta, true);
+        estahttp.send();
+
+
+    }
+    function  addCampos()
+    {
+
+        var ag = new XMLHttpRequest();
+        var pat = "/campos ";
+
+        var elid = document.getElementById("idCampo").value;
+        var depto = document.getElementById("depto").value;
+        var lati = document.getElementById("lati").value;
+        var long = document.getElementById("long").value;
+        ag.open("POST", pat );
+        ag.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        ag.send(JSON.stringify({id: elid, departamento: depto , latitud : lati ,longitud: long}));
+        alert("¡Se ha creado un Campo!");
+    }
+    function  addPozos()
+    {
+
+        var ag = new XMLHttpRequest();
+        var pat = "/pozos ";
+
+        var elid = document.getElementById("idPozo").value;
+        var estado = document.getElementById("estad").value;
+        var lati = document.getElementById("latiP").value;
+        var long = document.getElementById("longP").value;
+        ag.open("POST", pat );
+        ag.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        ag.send(JSON.stringify({id: elid, longitud: long,latitud : lati, estado: estado}));
+        alert("¡Se ha creado un Pozo!");
+    }
+    function addReporte(){
+
+        var re = new XMLHttpRequest();
+        var reee = "/reportes ";
+
+        var descr = document.getElementById("descr").value;
+        var idSe = document.getElementById("idSensor").value;
+        var contra = document.getElementById("contra").value;
+        var idPo = document.getElementById("idP").value;
+        var tipoSe = document.getElementById("tipoS").value;
+        re.open("POST", reee );
+        re.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        re.send(JSON.stringify({id:"", descripcion: descr,idSensor: idSe,contrasena: contra,idPozo:idPo,tiposensor:tipoSe }));
+        alert("¡Se añadio un nevo reporte!");
+    }
+    function  addJP()
+    {
+
+        var ag = new XMLHttpRequest();
+        var pat = "/jefesAsignado ";
+
+        var elid = document.getElementById("idJP").value;
+        var nombre = document.getElementById("nombreJP").value;
+        var ed = document.getElementById("edadJP").value;
+        var telef = document.getElementById("telJP").value;
+        var dire = document.getElementById("dirJP").value;
+        var cedula = document.getElementById("cedulaJP").value;
+        var nacio = document.getElementById("nalJP").value;
+        ag.open("POST", pat );
+        ag.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        ag.send(JSON.stringify({id: elid, nombre: nombre,edad : ed, telefono: telef,direccion : dire, cedula: cedula, nacionalidad: nacio}));
+        alert("¡Se ha creado un Jefe de Produccion!");
+    }
+    function  addJC()
+    {
+
+        var ag = new XMLHttpRequest();
+        var pat = "/jefesDeCampo";
+
+        var elid = document.getElementById("idJC").value;
+        var nombre = document.getElementById("nombreJC").value;
+        var ed = document.getElementById("edadJC").value;
+        var telef = document.getElementById("telJC").value;
+        var dire = document.getElementById("dirJC").value;
+        var cedula = document.getElementById("cedulaJC").value;
+        var nacio = document.getElementById("nalJC").value;
+        ag.open("POST", pat );
+        ag.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        ag.send(JSON.stringify({id: elid, nombre: nombre,edad : ed, telefono: telef,direccion : dire, cedula: cedula, nacionalidad: nacio}));
+        alert("¡Se ha creado un Jefe de Campo!");
+    }
+
+
+    function addEmer(){
+
+        var holi = new XMLHttpRequest();
+        var pa = "/sensoresEmergencia ";
+
+        var elid = document.getElementById("newEm").value;
+        holi.open("POST", pa );
+        holi.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        holi.send(JSON.stringify({id:"", emergencia: elid }));
+    }
+
+    function mostrarCampos() {
+
+        var camposhttp = new XMLHttpRequest();
+        var campo = "/campos";
+        camposhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var myArr = JSON.parse(this.responseText);
+                camp(myArr);
+            }
+        };
+
+        camposhttp.open("GET", campo, true);
+        camposhttp.send();
+
+
+        function camp(arr) {
+            var out = "";
+            var i;
+            for (i = 0; i < arr.length; i++) {
+                out += '<li> Campo ' + arr[i].id + ' -> ' + arr[i].departamento;
+            }
+            document.getElementById("camposActuales").innerHTML = out;
+        }
+    }
+    function mostrarReportes() {
+
+        var reph = new XMLHttpRequest();
+        var rep = "/reportes";
+        reph.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var myArr = JSON.parse(this.responseText);
+                yy(myArr);
+            }
+        };
+
+        reph.open("GET", rep, true);
+        reph.send();
+
+
+        function yy(arr) {
+            var out = "";
+            var i;
+            for (i = 0; i < arr.length; i++) {
+                out += '<li> El sensor de '+arr[i].tipoSensor +': ' +arr[i].idSensor +' del pozo: '+arr[i].idPozo +'reporto que: '  + arr[i].descripcion;
+            }
+            document.getElementById("reportesActuales").innerHTML = out;
+        }
+    }
+    function mostrarPozos() {
+
+        var pozoshttp = new XMLHttpRequest();
+        var pozo = "/pozos";
+        pozoshttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var myArr = JSON.parse(this.responseText);
+                poz(myArr);
+            }
+        };
+
+        pozoshttp.open("GET", pozo, true);
+        pozoshttp.send();
+
+
+        function poz(arr) {
+            var out = "";
+            var i;
+            for (i = 0; i < arr.length; i++) {
+                out += '<li> Pozo ' + arr[i].id + ' -> ' + arr[i].estado;
+            }
+            document.getElementById("pozosActuales").innerHTML = out;
+        }
+    }
+
+    function mostrarSensores() {
+        var emerhttp = new XMLHttpRequest();
+        var emer = "/sensoresEmergencia";
+        emerhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var myArr = JSON.parse(this.responseText);
+                myEmer(myArr);
+            }
+        };
+
+        emerhttp.open("GET", emer, true);
+        emerhttp.send();
+
+
+        function myEmer(arr) {
+            var out = "";
+            var i;
+            for (i = 0; i < arr.length; i++) {
+                out += '<li> Emergencia ' + arr[i].id + ' -> ' + arr[i].emergencia;
+            }
+            document.getElementById("emer").innerHTML = out;
+        }
+    }
+
+
+
+    var caudalhttp = new XMLHttpRequest();
+    var caudales = "/caudales";
+
+
+    caudalhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var myArr = JSON.parse(this.responseText);
+            myFunction(myArr);
+
+        }
+    };
+
+    caudalhttp.open("GET", caudales, true);
+    caudalhttp.send();
+
+
+    function myFunction(arr) {
+        var out = "";
+        var i;
+        for(i = 0; i < arr.length; i++) {
+            out += '<li> caudal '+arr[i].id+' -> ' + arr[i].caudal ;
+        }
+        document.getElementById("cau").innerHTML = out;
+    }
+
+
+
+
+
+
+
+
+
+
+    var consumohttp = new XMLHttpRequest();
+    var consumos = "/consumoEnergia";
+    consumohttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var myArr = JSON.parse(this.responseText);
+            myCons(myArr);
+        }
+    };
+
+    consumohttp.open("GET", consumos, true);
+    consumohttp.send();
+
+    function myCons(arr) {
+        var out = "";
+        var i;
+        for(i = 0; i < arr.length; i++) {
+            out += '<li> Consumo Energia '+arr[i].id+' -> ' + arr[i].consumoEnergia ;
+        }
+        document.getElementById("consu").innerHTML = out;
+    }
+
+
+
+
+
+    var JefeAhttp = new XMLHttpRequest();
+    var fejea = "/jefesAsignado";
+    JefeAhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var myArr = JSON.parse(this.responseText);
+            myJefea(myArr);
+        }
+    };
+
+    JefeAhttp.open("GET", fejea, true);
+    JefeAhttp.send();
+
+    function myJefea(arr) {
+        var out = "";
+        var i;
+        for(i = 0; i < arr.length; i++) {
+            out += '<li> Jefe de Produccion '+arr[i].id+' ->  Nombre:' + arr[i].nombre +' cedula:' + arr[i].cedula+' edad: '+arr[i].edad ;
+        }
+        document.getElementById("jefepActuales").innerHTML = out;
+    }
+
+    var JefeChttp = new XMLHttpRequest();
+    var fejec = "/jefesDeCampo";
+    JefeChttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var myArr = JSON.parse(this.responseText);
+            myJefec(myArr);
+        }
+    };
+
+    JefeChttp.open("GET", fejec, true);
+    JefeChttp.send();
+
+    function myJefec(arr) {
+        var out = "";
+        var i;
+        for(i = 0; i < arr.length; i++) {
+            out += '<li> Jefe de Campo '+arr[i].id+' ->  Nombre: ' + arr[i].nombre +' cedula:' + arr[i].cedula+' edad: '+arr[i].edad ;
+        }
+        document.getElementById("jefecActuales").innerHTML = out;
+    }
+
+
+
+
+
+
+    var emerhttp = new XMLHttpRequest();
+    var emer = "/sensoresEmergencia ";
+    emerhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var myArr = JSON.parse(this.responseText);
+            myEmer(myArr);
+        }
+    };
+
+    emerhttp.open("GET", emer, true);
+    emerhttp.send();
+
+    function myEmer(arr) {
+        var out = "";
+        var i;
+        for(i = 0; i < arr.length; i++) {
+            out += '<li> Emergencia '+arr[i].id+' -> ' + arr[i].emergencia ;
+        }
+        document.getElementById("emer").innerHTML = out;
+    }
+
+
+
+
+    var temphttp = new XMLHttpRequest();
+    var temp = "/sensoresTemperatura ";
+    temphttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var myArr = JSON.parse(this.responseText);
+            myTemp(myArr);
+        }
+    };
+
+    temphttp.open("GET", temp, true);
+    temphttp.send();
+
+    function myTemp(arr) {
+        var out = "";
+        var i;
+        for(i = 0; i < arr.length; i++) {
+            out += '<li> Temperatura '+arr[i].id+' -> ' + arr[i].temperatura ;
+        }
+        document.getElementById("temp").innerHTML = out;
+    }
+</script>
+
+</body>
+
+</html>
+
+
