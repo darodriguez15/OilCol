@@ -14,6 +14,7 @@ import views.html.*;
 import play.data.Form;
 import models.SensoresSegurosEntity;
 import java.util.List;
+import java.util.Date;
 
 public class ReporteController  extends Controller
 {
@@ -53,7 +54,8 @@ public class ReporteController  extends Controller
                         }
                 );
     }
-
+    
+ 
 
 
     public CompletionStage<Result> createReporte() {

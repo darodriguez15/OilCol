@@ -73,6 +73,7 @@ GET /reportes               controllers.ReporteController.getReportes
 POST /reportes			controllers.ReporteController.createReporte
 GET   /reporte/:id         controllers.ReporteController.getReporte(id: Long)
 
+
 #SensorEmergenciaController
 
 GET /sensoresEmergencia             controllers.SensorEmergenciaController.getSensoresEmergencia

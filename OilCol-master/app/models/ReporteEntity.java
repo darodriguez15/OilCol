@@ -3,7 +3,7 @@ package models;
 import javax.persistence.*;
 import com.avaje.ebean.Model;
 import java.util.List;
-
+import java.util.Date;
 @Entity
 @Table(name = "ReporteEntity")
 public class ReporteEntity extends Model {
@@ -29,7 +29,8 @@ public class ReporteEntity extends Model {
 
     @Column(name = "tipoSensor")
     private String tipoSensor;
-
+    
+   
 
 
 
@@ -56,6 +57,7 @@ public class ReporteEntity extends Model {
     public void setId(Long id) {
         this.id = id;
     }
+
 
 
     /**
