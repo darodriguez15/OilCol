@@ -281,8 +281,8 @@
         var tipoSe = document.getElementById("tipoS").value;
         re.open("POST", reee );
         re.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        re.send(JSON.stringify({id:"", descripcion: descr,idSensor: idSe,contrasena: contra,idPozo:idPo,tiposensor:tipoSe }));
-        alert("¡Se añadio un nevo reporte!");
+        re.send(JSON.stringify({id:"", descripcion: descr ,idSensor: idSe ,contrasenaSensor: contra ,idPozo:idPo ,tipoSensor:tipoSe }));
+        alert("¡Se añadio un nevo reporte!");  
     }
 
 

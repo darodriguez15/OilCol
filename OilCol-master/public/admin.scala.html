@@ -198,19 +198,19 @@
                     <form action="Admin" method="get">
                         <table>
                             <tr>
-                                <label >Descripcion</label> </tr> <tr><input type="text" class="form-control"  name="descripcion" /><br>
+                                <label >Descripcion</label> </tr> <tr><input id="descr" type="text" class="form-control"  name="descripcion" /><br>
                         </tr>
                             <tr>
-                                <label>ID sensor</label> </tr> <tr><input type="text" class="form-control" name="idSensor" required data-validation-required-message="Ingrese un Id" /><br>
+                                <label>ID sensor</label> </tr> <tr><input id="idSensor" type="text" class="form-control" name="idSensor" required data-validation-required-message="Ingrese un Id" /><br>
                         </tr>
                             <tr>
-                                <label >Contraseña Sensor</label></tr> <tr> <input type="password" class="form-control" name="contrasenaSensor"  required data-validation-required-message="Ingrese contraseña"/><br>
+                                <label >Contraseña Sensor</label></tr> <tr> <input id="contra" type="password" class="form-control" name="contrasenaSensor"  required data-validation-required-message="Ingrese contraseña"/><br>
                         </tr>
                             <tr>
-                                <label>ID Pozo</label></tr> <tr> <input type="text"  class="form-control"name="idPozo" required data-validation-required-message="Ingrese un Id"/><br>
+                                <label>ID Pozo</label></tr> <tr> <input id="idP" type="text"  class="form-control"name="idPozo" required data-validation-required-message="Ingrese un Id"/><br>
                         </tr>
                             <tr>
-                                <label>Tipo Sensor</label> </tr> <tr><input type="text" class="form-control" name="tipoSensor" required data-validation-required-message="Ingrese un tipo de sensor" /><br>
+                                <label>Tipo Sensor</label> </tr> <tr><input id="tipoS" type="text" class="form-control" name="tipoSensor" required data-validation-required-message="Ingrese un tipo de sensor" /><br>
                         </tr>
 
                             <tr>
@@ -446,7 +446,7 @@
         var tipoSe = document.getElementById("tipoS").value;
         re.open("POST", reee );
         re.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        re.send(JSON.stringify({id:"", descripcion: descr,idSensor: idSe,contrasena: contra,idPozo:idPo,tiposensor:tipoSe }));
+        re.send(JSON.stringify({id:"", descripcion: descr ,idSensor: idSe ,contrasenaSensor: contra , idPozo:idPo , tipoSensor:tipoSe }));
         alert("¡Se añadio un nevo reporte!");
     }
     function  addJP()
